@@ -1,12 +1,10 @@
 @import "../omarchy/current/theme/waybar.css";
 
-/* --- الأساسيات: خطوط أنعم وأوضح --- */
 * {
     border: none;
     font-family: 'SF Pro Display';
     font-weight: 800;
     font-size: 16.3px;
-    /* سلاسة الحركة عند التحويم */
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
@@ -17,7 +15,6 @@ window#waybar {
 
 }
 
-/* --- تطوير تأثير Liquid Glass: ملمس ناعم وعميق --- */
 #custom-omarchy,
 #workspaces,
 #clock,
@@ -29,32 +26,27 @@ window#waybar {
 #cpu,
 #custom-noti,
 #group-tray-expander {
-    /* تدرج انسيابي يعطي مظهر "الزجاج السائل" */
     background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0.25) 100%);
-    background-color: @bg1; /* لون القاعدة من ثيم أومارشي */
+    background-color: @bg1; 
     
     color: @foreground;
     padding: 2px 18px;
     margin: 6px 4px;
-    border-radius: 16px; /* انحناء عصري متوازن */
+    border-radius: 16px; 
     
-    /* تأثير الإضاءة المحيطية (Highlight Borders) */
     box-shadow: 
-        inset 0 1px 1px rgba(255, 255, 255, 0.1), /* لمعة علوية */
-        inset 0 -1px 2px rgba(0, 0, 0, 0.4);      /* عمق سفلي */
+        inset 0 1px 1px rgba(255, 255, 255, 0.1), 
+        inset 0 -1px 2px rgba(0, 0, 0, 0.4);      
     
     border: 1px solid rgba(255, 255, 255, 0.03);
 }
 
-/* --- أيقونة أومارشي: الهوية البصرية --- */
 #custom-omarchy {
     color: @color4;
     font-size: 18px;
     padding: 0 22px;
-    /* توهج داخلي خفيف بلون الثيم */
 }
 
-/* --- مساحات العمل: تصميم الـ Capsules المتحركة --- */
 #workspaces button {
     color: rgba(255, 255, 255, 0.4);
     padding: 0 10px;
@@ -66,7 +58,6 @@ window#waybar {
     background: @foreground;
     color: @background;
     min-width: 40px;
-    /* ظل ناعم للزر النشط */
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
 }
 
@@ -75,7 +66,6 @@ window#waybar {
     background: rgba(255, 255, 255, 0.1);
 }
 
-/* --- الألوان الذكية (أومارشي الأصلية) --- */
 #network    { color: @color6; }
 #bluetooth  { color: @color4; }
 #pulseaudio { color: @color3; }
@@ -85,7 +75,6 @@ window#waybar {
 #clock      { color: @color7; font-weight: 900; }
 #custom-noti { color: @color6; }
 
-/* --- تأثير التحويم المطور: الارتفاع اللطيف --- */
 #network:hover, 
 #bluetooth:hover, 
 #pulseaudio:hover, 
@@ -95,11 +84,9 @@ window#waybar {
 #custom-omarchy:hover {
     background: @foreground;
     color: @background;
-    /* تأثير "اللمعان" عند التحويم */
     box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.2);
 }
 
-/* --- التول تيب (Tooltip) الزجاجي --- */
 tooltip {
     background: @background;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -111,7 +98,6 @@ tooltip label {
     padding: 10px;
 }
 
-/* الـ Tray بشكل أنظف */
 #tray {
     margin: 0 8px;
     padding: 0 10px;
