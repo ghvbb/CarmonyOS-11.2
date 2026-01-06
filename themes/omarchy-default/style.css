@@ -1,6 +1,5 @@
 @import "../../../../../../../.config/omarchy/current/theme/walker.css";
 
-/* --- الأساسيات الفاخرة --- */
 * {
     all: unset;
     font-family:  "SF Pro Display", sans-serif;
@@ -12,45 +11,30 @@
 
 }
 
-scrollbar {
-}
 
-/* --- الخلفية الكلية (Main Window) --- */
 .box-wrapper {
-    /* شفافية صغيرة (Opacity Small) مع لون القاعدة */
     background-color: alpha(@base, 0.4);
-
-    /* زجاج سائل خفيف جداً (Small Liquid Glass) */
     background-image: linear-gradient(145deg,
-        rgba(255, 255, 255, 0.1) 0%,
-        rgba(255, 255, 255, 0.02) 40%,
-        rgba(0, 0, 0, 0.1) 100%);
-
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.02) 40%,
+    rgba(0, 0, 0, 0.1) 100%);
     padding: 24px;
-    border-radius: 32px; /* زوايا Tahoe الدائرية الفاخرة */
-
-    /* حدود زجاجية مضيئة تشبه iPhone */
+    border-radius: 32px; 
     border: 1px solid rgba(255, 255, 255, 0.15);
-
-    /* الظلال الداخلية لتعزيز الـ Liquid Glass */
     box-shadow:
-        inset 0 1px 2px rgba(255, 255, 255, 0.2),
-        0 10px 40px rgba(0, 0, 0, 0.3);
+    inset 0 1px 2px rgba(255, 255, 255, 0.2),
+    0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
-/* --- صندوق البحث (Search Bar) - زجاج سائل كامل --- */
 .search-container {
     background: linear-gradient(to bottom,
-        rgba(255, 255, 255, 0.08),
-        rgba(0, 0, 0, 0.15));
+    rgba(255, 255, 255, 0.08),
+    rgba(0, 0, 0, 0.15));
     background-color: rgba(255, 255, 255, 0.05);
-
     padding: 14px 22px;
     border-radius: 20px;
     margin-bottom: 15px;
-      background: rgba(255, 255, 255, 0.2);
-
-    /* حافة زجاجية حادة */
+    background: rgba(255, 255, 255, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
 }
@@ -64,7 +48,6 @@ scrollbar {
     color: alpha(@text, 0.4);
 }
 
-/* --- القائمة (Menu Items) --- */
 .item-box {
     padding: 12px 18px;
     margin: 4px 0;
@@ -73,36 +56,27 @@ scrollbar {
     border: 1px solid transparent;
 }
 
-/* تأثير الفقاعة الزجاجية عند الاختيار (Active Selection) */
 child:selected .item-box {
-    /* زجاج سائل لامع جداً */
     background: linear-gradient(135deg,
-        rgba(255, 255, 255, 0.18) 0%,
-        rgba(255, 255, 255, 0.04) 100%);
+    rgba(255, 255, 255, 0.18) 0%,
+    rgba(255, 255, 255, 0.04) 100%);
     background-color: rgba(255, 255, 255, 0.1);
-
-    /* حواف لامعة جداً كما في iOS */
     border-top: 1px solid rgba(255, 255, 255, 0.3);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
-    /* توهج داخلي للسائل */
     box-shadow:
         inset 0 1px 2px rgba(255, 255, 255, 0.2),
         0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* لون النص عند الاختيار - لون Omarchy المشرق */
 child:selected .item-box .item-text {
-    color: @color4; /* أزرق/بنفسجي Tahoe */
+    color: @color4; 
 }
-
-/* تأثير التحويم بالماوس (Soft Liquid) */
 child:hover .item-box {
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* --- الأيقونات (Modern Icon Fix) --- */
 .normal-icons { -gtk-icon-size: 30px; }
 .large-icons  { -gtk-icon-size: 25px; }
 
@@ -116,7 +90,6 @@ child:selected .item-image {
     -gtk-icon-transform: scale(1.1) translateY(-1px);
 }
 
-/* --- تلميحات الأزرار (Keybind Hints) --- */
 .keybind-hints {
     background: rgba(255, 255, 255, 0.05);
     padding: 12px;
