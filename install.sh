@@ -77,7 +77,7 @@ show_header() {
     center_text "/ /_/ / /  / / ___ / _, _// /___/ __  // // /_/ /  "
     center_text "\____/_/  /_/_/  |/_/ |_| \____/_/ /_/___/\____/   "
     echo -e "${NC}"
-    echo -e "${C}$(center_text "OMGLASS MANAGER v2.0")${NC}"
+    echo -e "${C}$(center_text "OMGLASS MANAGER v5.0")${NC}"
     echo ""
     draw_line
     echo ""
