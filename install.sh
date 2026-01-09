@@ -13,6 +13,8 @@ DIM='\033[2m'
 
 OMGLASS_DIR="OmGlass"
 TARGET_DIR="$HOME/.config"
+THEME_SRC="themes/omarchy-default"
+THEME_DEST_BASE="$HOME/.local/share/omarchy/default/walker/themes"
 CORE_APPS=("python" "python-gobject" "gtk4" "gtk3" "python-pip" "tty-clock" "cmatrix" "cava" "snapshot")
 FOLDERS_REQUIRED=("hypr" "waybar" "walker")
 
@@ -41,16 +43,6 @@ center_text() {
 draw_line() {
     local width=$(tput cols)
     printf "${B}%*s${NC}\n" "$width" '' | tr ' ' '─'
-}
-
-type_text() {
-    local text="$1"
-    local speed=0.01
-    for (( i=0; i<${#text}; i++ )); do
-        echo -ne "${text:$i:1}"
-        sleep $speed
-    done
-    echo ""
 }
 
 spinner() {
@@ -87,7 +79,6 @@ show_progress() {
     local duration=${1}
     local width=40
     local progress=0
-    local step=$((100 / width)) 
     
     echo -ne "${B}[${NC}"
     for ((i=0; i<=width; i++)); do
@@ -98,14 +89,14 @@ show_progress() {
 }
 
 check_yay() {
-    echo -ne "${Y}   [?] Checking dependencies...${NC}"
+    echo -ne "${Y}   [?] Checking system requirements...${NC}"
     sleep 0.5
     if ! command -v yay &> /dev/null; then
         echo -e "\n\n${R}   [!] Error: 'yay' is not installed.${NC}"
         echo -e "${DIM}       Please install yay to continue.${NC}"
         exit 1
     else
-        echo -e "\r${G}   [✓] Dependencies found.     ${NC}"
+        echo -e "\r${G}   [✓] System requirements met.       ${NC}"
     fi
 }
 
@@ -173,7 +164,7 @@ if [ "$BACKUP_REQ" = true ]; then
 fi
 
 echo ""
-echo -e "${C}${BOLD}   Phase 1: Configuration Sync${NC}"
+echo -e "${C}${BOLD}   Phase 1: Configuration & Assets${NC}"
 
 mkdir -p "$HOME/.local/share/applications"
 
@@ -183,9 +174,16 @@ for folder in "${FOLDERS_REQUIRED[@]}"; do
     fi
 
     if [ -d "$folder" ]; then
-        install_step "Syncing $folder to config" "cp -r $folder $TARGET_DIR/"
+        install_step "Syncing $folder config" "cp -r $folder $TARGET_DIR/"
     fi
 done
+
+if [ -d "$THEME_SRC" ]; then
+    install_step "Preparing theme directories" "mkdir -p $THEME_DEST_BASE"
+    install_step "Installing Omarchy Default Theme" "rm -rf $THEME_DEST_BASE/omarchy-default && cp -r $THEME_SRC $THEME_DEST_BASE/"
+else
+    echo -e "${Y}   [!] Warning: Theme source '$THEME_SRC' not found.${NC}"
+fi
 
 echo ""
 echo -ne "${BOLD}   [?] Install GUI Applications & Dependencies? (y/n): ${NC}"
@@ -220,7 +218,7 @@ fi
 
 echo ""
 draw_line
-echo -e "\n${G}${BOLD}$(center_text "INSTALLATION COMPLETE")${NC}"
+echo -e "\n${G}${BOLD}$(center_text "INSTALLATION v5.0 COMPLETE")${NC}"
 echo -e "${DIM}$(center_text "Your OmGlass system is ready")${NC}\n"
 
 echo -ne "${B}   Would you like to reboot now? (y/n): ${NC}"
