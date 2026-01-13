@@ -48,10 +48,10 @@ Located in `~/.local/share/omarchy/default/walker/themes/omarchy-default`:
 - `style.css`
 
 ## Kubuntu-Version :
-<img width="1366" height="768" alt="satty-20260101-150733" src="https://github.com/user-attachments/assets/51527b8b-8235-4e97-99ea-790ef0eb39ae" />
+<img width="1366" height="768" alt="satty-20260113-181717" src="https://github.com/user-attachments/assets/4c720dd1-c7b7-4f4d-9222-39bd0d3992fe" />
 
 ## Omarchy-Version :
-<img width="1366" height="768" alt="satty-20260101-150733" src="https://github.com/user-attachments/assets/51527b8b-8235-4e97-99ea-790ef0eb39ae" />
+<img width="1366" height="768" alt="satty-20260113-181949" src="https://github.com/user-attachments/assets/41af10eb-1613-4143-9be5-26a44598f078" />
 
 ## NargatoBar + Colors++ Omarchy (Comming Soon) :
 
