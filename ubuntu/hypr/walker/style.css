@@ -1,0 +1,105 @@
+@import "../../../../../../../.config/omarchy/current/theme/walker.css";
+
+* {
+  all: unset;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 15px;
+  color: @foreground;
+  letter-spacing: -0.2px;
+}
+
+#window {
+  background: transparent;
+}
+
+#box {
+  margin: 250px;
+}
+
+.box-wrapper {
+  background: @background;
+  border-radius: 14px;
+  padding: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  min-width: 480px;
+}
+
+.search-container {
+  padding: 0 10px;
+  margin-bottom: 18px;
+}
+
+.input {
+  color: @foreground;
+  caret-color: @foreground;
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.input placeholder {
+  color: @foreground;
+  opacity: 0.2;
+}
+
+.item-box {
+  padding: 12px 16px;
+  border-radius: 10px;
+  margin-bottom: 4px;
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.item-text {
+  font-weight: 700;
+  font-size: 15px;
+  text-transform: capitalize;
+}
+
+.item-subtext {
+  color: @foreground;
+  opacity: 0.4;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+child:selected .item-box {
+  background: rgba(255, 255, 255, 0.1);
+  margin-left: 6px;
+}
+
+child:selected .item-text {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+child:selected .item-subtext {
+  opacity: 0.8;
+}
+
+.item-image {
+  margin-right: 16px;
+  -gtk-icon-size: 29px;
+  min-width: 29px;
+  min-height: 29px;
+}
+
+.keybind-hints {
+  margin-top: 15px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.keybind-hints label {
+  color: @foreground;
+  opacity: 0.4;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+scrollbar {
+  opacity: 0;
+}

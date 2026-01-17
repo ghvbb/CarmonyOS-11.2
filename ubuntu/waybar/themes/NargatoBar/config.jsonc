@@ -1,0 +1,172 @@
+{
+
+  "reload_style_on_change": true,
+
+  "layer": "bottom",
+
+  "position": "top",
+
+  "height": 40,
+
+  "margin-top": 10,
+
+  "margin-left": 10,
+
+  "margin-right": 10,
+
+  "spacing": 0,
+
+
+
+  "modules-left": [],
+
+  "modules-center": [
+
+    "custom/omarchy",
+
+    "hyprland/workspaces",
+
+    "clock",
+
+    "custom/update",
+
+    "custom/screenrecording-indicator",
+
+    "group/tray-expander",
+
+    "bluetooth",
+
+    "network",
+
+    "pulseaudio",
+
+    "battery"
+
+  ],
+
+  "modules-right": [],
+
+
+
+  "hyprland/workspaces": {
+
+    "on-click": "activate",
+
+    "format": "{icon}",
+
+    "format-icons": {
+
+      "1": "1", "2": "2", "3": "3", "4": "4", "5": "5",
+
+      "6": "6", "7": "7", "8": "8", "9": "9", "10": "0"
+
+    },
+
+    "persistent-workspaces": {
+
+      "1": [], "2": [], "3": [], "4": [], "5": []
+
+    }
+
+  },
+
+
+
+  "custom/omarchy": {
+
+    "format": "Apps",
+
+    "on-click": "omarchy-menu",
+
+    "on-click-right": "xdg-terminal-exec",
+
+    "tooltip-format": "Omarchy Menu\n\nSuper + Alt + Space"
+
+  },
+
+
+
+  "clock": {
+
+    "format": "{:L%A %I:%M %p}",
+
+    "format-alt": "{:L%d %B W%V %Y}",
+
+    "tooltip": false
+
+  },
+
+
+
+  "network": {
+
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+
+    "format": "{icon}",
+
+    "on-click": "omarchy-launch-wifi"
+
+  },
+
+
+
+  "battery": {
+
+    "format": "{capacity}% {icon}",
+
+    "format-icons": {
+
+      "charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
+
+      "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+
+    }
+
+  },
+
+
+  "bluetooth": {
+
+    "format": "",
+
+    "format-disabled": "󰂲",
+
+    "format-connected": "󰂱",
+
+    "format-no-controller": "",
+
+    "tooltip-format": "Devices connected: {num_connections}",
+
+    "on-click": "omarchy-launch-bluetooth"
+
+  },
+
+  "pulseaudio": {
+
+    "format": "{icon}",
+
+    "on-click": "omarchy-launch-or-focus-tui wiremix",
+
+    "format-icons": { "default": ["", "", ""] }
+
+  },
+
+
+
+  "group/tray-expander": {
+
+    "orientation": "inherit",
+
+    "drawer": { "transition-duration": 600, "children-class": "tray-group-item" },
+
+    "modules": ["custom/expand-icon", "tray"]
+
+  },
+
+
+
+  "custom/expand-icon": { "format": "", "tooltip": false },
+
+  "tray": { "icon-size": 14, "spacing": 10 }
+
+}

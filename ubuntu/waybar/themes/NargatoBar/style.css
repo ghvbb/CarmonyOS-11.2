@@ -1,0 +1,97 @@
+@define-color background rgba(20, 20, 20, 0.4);
+@define-color foreground #ffffff;
+* {
+    border: none;
+    border-radius: 0;
+    font-family: 'Google Sans Display', 'JetBrainsMono Nerd Font', sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+.modules-center {
+    background-color: rgba(0, 0, 0, 0.7);
+    background: @background;
+    border: 1px solid @foreground;
+    border-radius: 100px;
+    padding: 3px 20px;
+    margin: 5px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+#workspaces {
+    background-color: transparent;
+    margin-right: 15px;
+}
+
+#workspaces button {
+    padding: 1px 4;
+    margin: 4 4px;
+    border-radius: 100%;
+    color: transparent; 
+    background-color: @foreground;
+    opacity: 0.7;
+    min-width: 10px;
+    min-height: 15px;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+#workspaces button.active {
+    color: @background;
+    background-color: @foreground;
+    opacity: 1;
+    min-width: 45px;
+    border-radius: 20px;
+    padding: 0 10px;
+}
+
+#workspaces button:hover {
+    opacity: 0.9;
+    background-color: @foreground;
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+    animation: pulse 1.5s infinite;
+}
+
+#custom-kubuntu, #clock, #network, #bluetooth, #pulseaudio, #battery, #tray {
+    color: @foreground;
+    padding: 0 12px;
+    margin: 0;
+    background: transparent;
+    transition: all 0.3s ease-in-out;
+}
+
+#custom-kubuntu:hover, #clock:hover, #network:hover, 
+#bluetooth:hover, #pulseaudio:hover, #battery:hover {
+    color: @foreground;
+}
+
+#custom-kubuntu {
+    font-size: 18px;
+    color: @foreground;
+}
+
+#tray {
+    margin-left: 10px;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0px rgba(235, 77, 75, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(235, 77, 75, 0); }
+    100% { box-shadow: 0 0 0 0px rgba(235, 77, 75, 0); }
+}
+
+#battery.charging {
+    color: @foreground;
+    animation: blink 2s linear infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0.6; }
+}

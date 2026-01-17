@@ -1,0 +1,237 @@
+@define-color background rgba(20, 20, 20, 0.4);
+@define-color foreground #ffffff;
+
+
+* {
+
+    border: none;
+
+    border-radius: 0;
+
+    font-family: 'Google Sans Display';
+
+    font-weight: bold;
+
+    font-size: 15px;
+
+    min-height: 0;
+
+}
+
+
+
+window#waybar {
+
+    background: transparent;
+
+}
+
+
+
+tooltip {
+
+    background: @background;
+
+    border: 1px solid @foreground;
+
+    border-radius: 12px;
+
+}
+
+
+
+tooltip label {
+
+    color: @foreground;
+
+    padding: 5px;
+
+}
+
+
+
+#workspaces {
+
+    background-color: @background;
+
+    margin: 10px 0 10px 15px;
+
+    padding: 5px;
+
+    border-radius: 50px;
+
+    border: 1px solid @foreground;
+
+}
+
+
+
+#workspaces button {
+
+    padding: 0px 5px;
+
+    margin: 2px 3px;
+
+    border-radius: 100%;
+
+    color: @foreground;
+
+    background-color: transparent;
+
+    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.68);
+
+    min-width: 10px;
+
+}
+
+
+
+#workspaces button.active {
+
+    background-color: @foreground;
+
+    color: @background;
+
+    min-width: 50px;
+
+    border-radius: 20px;
+
+    padding: 0 10px;
+
+}
+
+
+
+#workspaces button:hover {
+
+    background-color: @foreground;
+
+    color: @background;
+
+    min-width: 45px;
+
+    border-radius: 20px;
+
+}
+
+
+
+#custom-kubuntu,
+
+#clock,
+
+#network,
+
+#bluetooth,
+
+#pulseaudio,
+
+#language,
+
+#battery,
+
+#group-tray-expander,
+
+#tray {
+
+    background-color: @background;
+
+    color: @foreground;
+
+    padding: 0 15px;
+
+    margin: 10px 5px;
+
+    border-radius: 20px;
+
+    border: 1px solid @foreground;
+
+    transition: all 0.3s ease;
+
+}
+
+
+
+#custom-kubuntu {
+
+    font-size: 20px;
+
+    padding: 0px 20px;
+
+    padding-left: 20px;
+
+    margin-left:  20px;
+
+}
+
+
+
+#clock {
+
+    margin-right: 15px;
+
+}
+
+
+
+#pulseaudio.muted,
+
+#network.disconnected,
+
+#workspaces button.urgent {
+
+    background-color: @background;
+
+    color: @foreground;
+
+}
+
+
+
+#battery.charging {
+
+    background-color: @green;
+
+    color: @background;
+
+}
+
+
+
+#custom-kubuntu:hover,
+
+#clock:hover,
+
+#network:hover,
+
+#bluetooth:hover,
+
+#pulseaudio:hover,
+
+#language:hover,
+
+#battery:hover,
+
+#group-tray-expander:hover,
+
+#tray:hover {
+
+    background-color: @foreground;
+
+    color: @background;
+
+}
+
+
+
+@keyframes flash {
+
+    0% { opacity: 1; }
+
+    50% { opacity: 0.5; }
+
+    100% { opacity: 1; }
+
+}
+
+
