@@ -47,7 +47,7 @@ Located in `~/.local/share/omarchy/default/walker/themes/omarchy-default`:
 - `layout.xml`
 - `style.css`
 
-## Kubuntu-Version :
+## ubuntu-Version :
 <img width="1366" height="768" alt="satty-20260113-181717" src="https://github.com/user-attachments/assets/4c720dd1-c7b7-4f4d-9222-39bd0d3992fe" />
 
 ## Omarchy-Version :
