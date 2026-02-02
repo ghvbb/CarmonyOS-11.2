@@ -57,6 +57,15 @@ Located in `~/.local/share/omarchy/default/walker/themes/omarchy-default`:
 - `style.css`
 
 ## 4. Rofi (App Launcher)
+Located In ".config/rofi"
+
+
+
+## how to join  into Comunity ?
+
+If  you really Want  TO join to us comunity 
+run the join.cpp
+and complete the  job appliction
 ## ubuntu-Version :
 <img width="1363" height="768" alt="2026-02-02-132603_hyprshot" src="https://github.com/user-attachments/assets/18f77835-4093-4dec-acd4-3e3e28aec97a" />
 
