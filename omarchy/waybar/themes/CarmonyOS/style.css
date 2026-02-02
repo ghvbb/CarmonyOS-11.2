@@ -1,0 +1,756 @@
+/* ══════════════════════════════════════════════════════════════════════════════
+   
+   ░██╗░░░░░░░██╗░█████╗░██╗░░░██╗██████╗░░█████╗░██████╗░
+   ░██║░░██╗░░██║██╔══██╗╚██╗░██╔╝██╔══██╗██╔══██╗██╔══██╗
+   ░╚██╗████╗██╔╝███████║░╚████╔╝░██████╦╝███████║██████╔╝
+   ░░████╔═████║░██╔══██║░░╚██╔╝░░██╔══██╗██╔══██║██╔══██╗
+   ░░╚██╔╝░╚██╔╝░██║░░██║░░░██║░░░██████╦╝██║░░██║██║░░██║
+   ░░░╚═╝░░░╚═╝░░╚═╝░░╚═╝░░░╚═╝░░░╚═════╝░╚═╝░░╚═╝╚═╝░░╚═╝
+   
+   9H 10.0 EDITION
+   By ghvbb and  OmGlass Comunity
+   
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+@import "../omarchy/current/theme/waybar.css";
+
+
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: 'Google Sans Display', 'Google Sans', sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    min-height: 0;
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+*:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+
+window#waybar {
+    background: transparent;
+    color: @foreground;
+    transition: background 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+window#waybar.hidden {
+    margin-bottom: -60px;
+    transition: margin 0.4s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+}
+
+window#waybar.empty {
+    background: transparent;
+}
+
+window#waybar.solo {
+    background: transparent;
+}
+
+.modules-left {
+    background: @background;
+    border-radius: 10px;
+    margin: 0 4px 0 0;
+    padding: 0 4px;
+    transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.modules-center {
+    background: @background;
+    border-radius: 10px;
+    margin: 0 4px;
+    padding: 0 6px;
+    transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.modules-right {
+    background: @background;
+    border-radius: 10px;
+    margin: 0 0 0 4px;
+    padding: 0 4px;
+    transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+tooltip {
+    background: @background;
+    border: 1px solid @foreground;
+    border-radius: 8px;
+    padding: 0;
+}
+
+tooltip * {
+    background: transparent;
+}
+
+tooltip label {
+    color: @foreground;
+    font-family: 'Google Sans Display', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    padding: 6px 10px;
+    min-width: 20px;
+}
+#workspaces {
+    background: transparent;
+    margin: 0 2px;
+    padding: 2px 4px;
+    border-radius: 5px;
+}
+
+#workspaces button {
+    background: transparent;
+    color: @foreground;
+    font-family: 'Google Sans Display', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    padding: 2px 6px;
+    margin: 1px 2px;
+    border-radius: 6px;
+    min-width: 18px;
+    min-height: 18px;
+    transition: 
+        all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+        min-width 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+#workspaces button:hover {
+    background: @background;
+    color: @foreground;
+    min-width: 28px;
+    padding: 2px 10px;
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+#workspaces button.active {
+    background: @foreground;
+    color: @background;
+    font-weight: 600;
+    min-width: 32px;
+    padding: 2px 12px;
+    border-radius: 8px;
+}
+
+#workspaces button.active:hover {
+    min-width: 36px;
+    padding: 2px 14px;
+    background: @background;
+    color: @foreground;
+}
+
+#workspaces button.empty {
+    color: @foreground;
+    min-width: 16px;
+    padding: 2px 4px;
+}
+
+#workspaces button.empty:hover {
+    background: @foreground;
+    color: @background;
+    min-width: 26px;
+}
+
+#workspaces button.urgent {
+    background: @foreground;
+    color: @background;
+    font-weight: 600;
+    animation: ws-urgent 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+#workspaces button.urgent:hover {
+    animation: none;
+}
+
+#workspaces button.visible {
+    background: transparent;
+    color: @foreground;
+    min-width: 22px;
+}
+
+#workspaces button.focused {
+    background: @foreground;
+    color: @background;
+    font-weight: 600;
+    min-width: 32px;
+}
+
+
+
+#window {
+    background: transparent;
+    color: @foreground;
+    font-family: 'Google Sans Display', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 8px;
+    margin: 0 4px;
+    border-radius: 6px;
+    transition: all 0.25s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+#window:hover {
+    background: @foreground;
+    color: @background;
+    padding: 2px 12px;
+}
+
+#window.empty {
+    background: transparent;
+    padding: 2px 4px;
+}
+
+#window.floating {
+    font-style: italic;
+}
+
+#custom-launcher {
+    background: transparent;
+    color: @foreground;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 2px 10px;
+    margin: 3px 4px 3px 2px;
+    border-radius: 8px;
+    transition: 
+        all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+        font-size 0.25s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+#custom-launcher:hover {
+    background: @foreground;
+    color: @background;
+    padding: 2px 14px;
+    font-size: 15px;
+}
+
+#clock {
+    background: transparent;
+    color: @foreground;
+    font-family: 'Google Sans Display', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 12px;
+    margin: 3px 4px;
+    border-radius: 8px;
+    letter-spacing: 0.5px;
+    transition: all 0.25s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+#clock:hover {
+    background: @foreground;
+    color: @background;
+    padding: 2px 16px;
+}
+
+#custom-media {
+    background: transparent;
+    color: @foreground;
+    font-family: 'Google Sans Display', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    padding: 2px 8px;
+    margin: 3px 4px;
+    border-radius: 6px;
+    min-width: 20px;
+    transition: all 0.25s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+#custom-media:hover {
+    background: @foreground;
+    color: @background;
+    padding: 2px 12px;
+}
+
+#custom-media.playing {
+    font-weight: 600;
+}
+
+#custom-media.paused {
+    color: @foreground;
+}
+
+#temperature {
+    background: transparent;
+    color: @foreground;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 2px 8px;
+    margin: 3px 2px;
+    border-radius: 6px;
+    transition: all 0.25s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+#temperature:hover {
+    background: @foreground;
+    color: @background;
+    padding: 2px 12px;
+}
+
+#temperature.warning {
+    color: @foreground;
+    font-weight: 600;
+}
+
+#temperature.critical {
+    color: @foreground;
+    font-weight: 700;
+    animation: temp-critical 0.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+
+
+#tray {
+    background: transparent;
+    color: @foreground;
+    padding: 2px 6px;
+    margin: 3px 2px;
+    border-radius: 6px;
+    transition: all 0.25s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+#tray:hover {
+    background: @foreground;
+    color: @background;
+    padding: 2px 10px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+#tray menu {
+    background: @background;
+    border: 1px solid @foreground;
+    border-radius: 8px;
+    padding: 4px 2px;
+}
+
+#tray menu separator {
+    background: @foreground;
+    margin: 4px 8px;
+    min-height: 1px;
+}
+
+#tray menu menuitem {
+    background: transparent;
+    color: @foreground;
+    font-family: 'Google Sans Display', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    padding: 6px 12px;
+    margin: 1px 4px;
+    border-radius: 6px;
+    min-height: 18px;
+    transition: all 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+#tray menu menuitem:hover {
+    background: @foreground;
+    color: @background;
+    padding: 6px 16px;
+}
+
+#tray menu menuitem:disabled {
+    color: @foreground;
+}
+
+
+
+#group-tray-expander {
+    background: transparent;
+    padding: 0 2px;
+    margin: 0 1px;
+    border-radius: 8px;
+}
+
+#custom-expand-icon {
+    background: transparent;
+    color: @foreground;
+    font-size: 11px;
+    padding: 2px 6px;
+    margin: 3px 1px;
+    border-radius: 6px;
+    transition: all 0.25s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+#custom-expand-icon:hover {
+    background: @foreground;
+    color: @background;
+    padding: 2px 10px;
+}
+
+.tray-group-item {
+    transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+#group-connectivity {
+    background: transparent;
+    padding: 0 2px;
+    margin: 0 1px;
+    border-radius: 8px;
+}
+
+#network {
+    background: transparent;
+    color: @foreground;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 2px 8px;
+    margin: 3px 2px;
+    border-radius: 6px;
+    min-width: 18px;
+    transition: all 0.25s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+#network:hover {
+    background: @foreground;
+    color: @background;
+    padding: 2px 12px;
+}
+
+#network.disconnected {
+    color: @foreground;
+}
+
+#network.disconnected:hover {
+    background: @foreground;
+    color: @background;
+}
+
+#network.disabled {
+    color: @foreground;
+}
+
+#network.linked {
+    color: @foreground;
+}
+
+#network.ethernet {
+    color: @foreground;
+}
+
+#network.wifi {
+    color: @foreground;
+}
+
+#bluetooth {
+    background: transparent;
+    color: @foreground;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 2px 8px;
+    margin: 3px 2px;
+    border-radius: 6px;
+    min-width: 18px;
+    transition: all 0.25s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+#bluetooth:hover {
+    background: @foreground;
+    color: @background;
+    padding: 2px 12px;
+}
+
+#bluetooth.disabled {
+    color: @foreground;
+}
+
+#bluetooth.disabled:hover {
+    background: @foreground;
+    color: @background;
+}
+
+#bluetooth.off {
+    color: @foreground;
+}
+
+#bluetooth.on {
+    color: @foreground;
+}
+
+#bluetooth.connected {
+    color: @foreground;
+    font-weight: 600;
+}
+
+#bluetooth.discoverable {
+    color: @foreground;
+    animation: bt-discover 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+
+
+#pulseaudio {
+    background: transparent;
+    color: @foreground;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 2px 10px;
+    margin: 3px 2px;
+    border-radius: 6px;
+    min-width: 18px;
+    transition: all 0.25s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+#pulseaudio:hover {
+    background: @foreground;
+    color: @background;
+    padding: 2px 14px;
+}
+
+#pulseaudio.muted {
+    color: @foreground;
+}
+
+#pulseaudio.muted:hover {
+    background: @foreground;
+    color: @background;
+}
+
+#pulseaudio.bluetooth {
+    color: @foreground;
+    font-weight: 600;
+}
+
+#pulseaudio.source-muted {
+    color: @foreground;
+}
+
+#battery {
+    background: transparent;
+    color: @foreground;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 2px 10px;
+    margin: 3px 2px;
+    border-radius: 6px;
+    min-width: 18px;
+    transition: all 0.25s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+#battery:hover {
+    background: @foreground;
+    color: @background;
+    padding: 2px 14px;
+}
+
+#battery.charging {
+    color: @foreground;
+    font-weight: 600;
+    animation: bat-charge 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+#battery.charging:hover {
+    animation: none;
+    background: @foreground;
+    color: @background;
+}
+
+#battery.plugged {
+    color: @foreground;
+    font-weight: 600;
+}
+
+#battery.full {
+    color: @foreground;
+    font-weight: 600;
+}
+
+#battery.discharging {
+    color: @foreground;
+}
+
+#battery.warning {
+    color: @foreground;
+    font-weight: 600;
+}
+
+#battery.critical {
+    color: @foreground;
+    font-weight: 700;
+    animation: bat-critical 0.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+#battery.critical:hover {
+    animation: none;
+    background: @foreground;
+    color: @background;
+}
+
+
+
+#custom-power {
+    background: transparent;
+    color: @foreground;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 2px 10px;
+    margin: 3px 2px 3px 4px;
+    border-radius: 8px;
+    transition: 
+        all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+        font-size 0.25s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+#custom-power:hover {
+    background: @foreground;
+    color: @background;
+    padding: 2px 14px;
+    font-size: 14px;
+}
+
+
+
+
+#custom-update {
+    background: transparent;
+    color: @foreground;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 2px 8px;
+    margin: 3px 2px;
+    border-radius: 6px;
+    transition: all 0.25s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+#custom-update:hover {
+    background: @foreground;
+    color: @background;
+    padding: 2px 12px;
+}
+
+#custom-update.pending {
+    font-weight: 600;
+    animation: update-pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+
+
+
+#custom-screenrecording-indicator {
+    background: transparent;
+    color: @foreground;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    margin: 3px 2px;
+    border-radius: 6px;
+    transition: all 0.25s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+#custom-screenrecording-indicator:hover {
+    background: @foreground;
+    color: @background;
+    padding: 2px 12px;
+}
+
+#custom-screenrecording-indicator.recording {
+    font-weight: 700;
+    animation: rec-pulse 0.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+
+
+#backlight {
+    background: transparent;
+    color: @foreground;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 2px 8px;
+    margin: 3px 2px;
+    border-radius: 6px;
+    transition: all 0.25s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+#backlight:hover {
+    background: @foreground;
+    color: @background;
+    padding: 2px 12px;
+}
+#idle_inhibitor {
+    background: transparent;
+    color: @foreground;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 2px 8px;
+    margin: 3px 2px;
+    border-radius: 6px;
+    transition: all 0.25s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+#idle_inhibitor:hover {
+    background: @foreground;
+    color: @background;
+    padding: 2px 12px;
+}
+
+#idle_inhibitor.activated {
+    font-weight: 600;
+}
+
+#idle_inhibitor.deactivated {
+    color: @foreground;
+}
+
+#language {
+    background: transparent;
+    color: @foreground;
+    font-size: 10px;
+    font-weight: 500;
+    padding: 2px 8px;
+    margin: 3px 2px;
+    border-radius: 6px;
+    transition: all 0.25s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+#language:hover {
+    background: @foreground;
+    color: @background;
+    padding: 2px 12px;
+}
+
+#custom-omarchy {
+    background: transparent;
+    color: @foreground;
+    font-family: 'Google Sans Display', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 10px;
+    margin: 3px 4px;
+    border-radius: 8px;
+    transition: all 0.25s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+#custom-omarchy:hover {
+    background: @foreground;
+    color: @background;
+    padding: 2px 14px;
+}
+
+
+
+window#waybar.fullscreen {
+    background: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+window#waybar.fullscreen .modules-left,
+window#waybar.fullscreen .modules-center,
+window#waybar.fullscreen .modules-right {
+    background: @background;
+    border-radius: 0;
+    margin: 0;
+}
