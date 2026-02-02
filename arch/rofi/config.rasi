@@ -1,0 +1,197 @@
+configuration {
+    modi:                        "drun,run,window,filebrowser";
+    show-icons:                  true;
+    display-drun:                "";
+    display-run:                 "";
+    display-window:              "";
+    display-filebrowser:         "";
+    drun-display-format:         "{name}";
+    window-format:               "{c}   {t}";
+    font:                        "Google Sans Display 12";
+    icon-theme:                  "Papirus-Dark";
+    hover-select:                true;
+    me-select-entry:             "";
+    me-accept-entry:             "MousePrimary";
+    cursor:                      "default";
+    steal-focus:                 true;
+}
+
+* {
+    bg:                          #0a0a0fcc;
+    bg-blur:                     #0a0a0f99;
+    bg-card:                     #ffffff08;
+    bg-entry:                    #ffffff06;
+    bg-select:                   #82aaff15;
+    
+    fg:                          #ebebf5;
+    fg-dim:                      #ebebf580;
+    fg-faint:                    #ebebf540;
+    
+    accent:                      #82aaff;
+    accent-dim:                  #82aaff60;
+    urgent:                      #ff7895;
+    success:                     #8bcd5b;
+    
+    none:                        transparent;
+    radius:                      16px;
+    radius-sm:                   12px;
+}
+
+window {
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    width:                       580px;
+    background-color:            @bg;
+    border:                      1px solid;
+    border-color:                @bg-card;
+    border-radius:               6px;
+}
+
+mainbox {
+    spacing:                     20px;
+    padding:                     30px 32px;
+    background-color:            @none;
+    children:                    [ "inputbar", "listview", "mode-switcher" ];
+}
+
+inputbar {
+    spacing:                     14px;
+    padding:                     18px 22px;
+    background-color:            @bg-card;
+    border:                      1px solid;
+    border-color:                @bg-entry;
+    border-radius:               @radius;
+    children:                    [ "prompt", "entry" ];
+}
+
+prompt {
+    padding:                     0 4px 0 0;
+    background-color:            @none;
+    text-color:                  @accent;
+    font:                        "JetBrainsMono Nerd Font 15";
+    vertical-align:              0.5;
+}
+
+entry {
+    background-color:            @none;
+    text-color:                  @fg;
+    placeholder:                 "Search applications...";
+    placeholder-color:           @fg-faint;
+    vertical-align:              0.5;
+}
+
+listview {
+    columns:                     1;
+    lines:                       6;
+    fixed-height:                true;
+    spacing:                     6px;
+    background-color:            @none;
+    scrollbar:                   false;
+}
+
+element {
+    spacing:                     14px;
+    padding:                     14px 18px;
+    background-color:            @none;
+    border:                      1px solid;
+    border-color:                @none;
+    border-radius:               @radius-sm;
+}
+
+element normal.normal,
+element alternate.normal {
+    background-color:            @none;
+    text-color:                  @fg-dim;
+}
+
+element normal.urgent,
+element alternate.urgent {
+    background-color:            @none;
+    text-color:                  @urgent;
+}
+
+element normal.active,
+element alternate.active {
+    background-color:            @bg-card;
+    text-color:                  @accent;
+}
+
+element selected.normal {
+    background-color:            @bg-select;
+    text-color:                  @fg;
+    border-color:                @accent-dim;
+}
+
+element selected.urgent {
+    background-color:            @bg-select;
+    text-color:                  @urgent;
+    border-color:                @urgent;
+}
+
+element selected.active {
+    background-color:            @bg-select;
+    text-color:                  @accent;
+    border-color:                @accent-dim;
+}
+
+element-icon {
+    size:                        26px;
+    background-color:            @none;
+    cursor:                      inherit;
+}
+
+element-text {
+    background-color:            @none;
+    text-color:                  inherit;
+    vertical-align:              0.5;
+    cursor:                      inherit;
+}
+
+mode-switcher {
+    spacing:                     12px;
+    padding:                     4px;
+    background-color:            @none;
+}
+
+button {
+    width:                       52px;
+    padding:                     14px 0;
+    margin:                      2px;
+    background-color:            @bg-card;
+    text-color:                  @fg-faint;
+    border:                      1px solid;
+    border-color:                @none;
+    border-radius:               @radius-sm;
+    horizontal-align:            0.5;
+    cursor:                      pointer;
+}
+
+button selected {
+    background-color:            @bg-select;
+    text-color:                  @accent;
+    border-color:                @accent-dim;
+}
+
+message {
+    padding:                     16px 20px;
+    background-color:            @bg-card;
+    border:                      1px solid;
+    border-color:                @bg-entry;
+    border-radius:               @radius-sm;
+}
+
+textbox {
+    background-color:            @none;
+    text-color:                  @fg-dim;
+    vertical-align:              0.5;
+}
+
+error-message {
+    padding:                     24px;
+    background-color:            @bg;
+    text-color:                  @urgent;
+    border:                      1px solid;
+    border-color:                @urgent;
+    border-radius:               @radius;
+}
