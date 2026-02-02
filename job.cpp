@@ -26,7 +26,7 @@ bool isSupported(const string& lang) {
     string l = toLower(lang);
     return (l == "python" || l == "shell" || l == "bash" || 
             l == "css" || l == "hyprland" || l == "config hyprland" || 
-            l == "config" || l == "lua");
+            l == "config" || l == "lua" || l == "c" || l == "c++" || l == "cpp");
 }
 
 void slowPrint(const string& text, int delay = 5000) {
@@ -91,7 +91,7 @@ void printMission() {
   ║   Our goal is clear: LIBERATE WINDOWS USERS and migrate them               ║
   ║   to the superior world of Linux.                                          ║
   ║                                                                             ║
-  ║   🕊️  "Free The North Windows"                                              ║
+  ║   🕊️  "جبهة تحرير شمال ويندوز"                                              ║
   ║                                                                             ║
   ╠═════════════════════════════════════════════════════════════════════════════╣
   ║                                                                             ║
@@ -190,12 +190,13 @@ void printSupportedLangs() {
   ║      ✅ CSS             - Styling & Themes                                 ║
   ║      ✅ Config Hyprland - Window Manager Config                            ║
   ║      ✅ Lua             - Neovim & Extensions                              ║
+  ║      ✅ C               - System Programming                               ║
+  ║      ✅ C++             - Applications & Tools                             ║
   ║                                                                             ║
   ╚═════════════════════════════════════════════════════════════════════════════╝
     )" << RESET << endl;
 }
 
-// Print credits
 void printCredits() {
     cout << DIM << CYAN;
     cout << "\n  ─────────────────────────────────────────────────────────────────────────────\n";
@@ -205,7 +206,6 @@ void printCredits() {
     cout << RESET << endl;
 }
 
-// Print divider
 void printDivider() {
     cout << MAGENTA;
     cout << "\n  ═══════════════════════════════════════════════════════════════════════════════\n" << RESET;
@@ -256,9 +256,9 @@ int main() {
     cout << YELLOW << "  👤 Enter your name: " << RESET;
     getline(cin, name);
     
-    cout << YELLOW << "  💻 Enter your language (Python/Shell/CSS/Hyprland/Lua): " << RESET;
+    cout << YELLOW << "  💻 Enter your language (Python/Shell/CSS/Hyprland/Lua/C/C++): " << RESET;
     getline(cin, lang);
-
+    
     if (!isSupported(lang)) {
         cout << RED << BOLD;
         cout << "\n  ╔═════════════════════════════════════════════════════════════════════════════╗\n";
@@ -267,7 +267,7 @@ int main() {
         cout << "  ║                                                                             ║\n";
         cout << "  ║      \"" << lang << "\"" << string(max(0, 64 - (int)lang.length()), ' ') << "║\n";
         cout << "  ║                                                                             ║\n";
-        cout << "  ║   Please choose from: Python, Shell, CSS, Config Hyprland, or Lua          ║\n";
+        cout << "  ║   Please choose from: Python, Shell, CSS, Config Hyprland, Lua, C, C++     ║\n";
         cout << "  ║                                                                             ║\n";
         cout << "  ╚═════════════════════════════════════════════════════════════════════════════╝\n";
         cout << RESET << endl;
