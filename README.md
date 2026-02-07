@@ -65,8 +65,6 @@ Located In ".config/rofi"
 If  you really Want  TO join to us comunity 
 run the join.cpp
 and complete the  job appliction
-## ubuntu-Version :
-<img width="1363" height="768" alt="2026-02-02-132603_hyprshot" src="https://github.com/user-attachments/assets/18f77835-4093-4dec-acd4-3e3e28aec97a" />
 
 ## Omarchy-Version :
 
@@ -74,12 +72,23 @@ and complete the  job appliction
 
 ## EndeavorOS + Arch Version :
 
-<img width="1366" height="767" alt="2026-02-01-215900_hyprshot" src="https://github.com/user-attachments/assets/89bb48a9-584a-4571-93e9-96173f690185" />
+<img width="1366" height="768" alt="2026-02-04-230830_hyprshot" src="https://github.com/user-attachments/assets/b82d5126-3d6c-422d-b2b2-5ebe0c78725c" />
+<img width="1366" height="768" alt="2026-02-05-133224_hyprshot" src="https://github.com/user-attachments/assets/1ff9b8ee-a30a-4e61-8236-89aff1b3ed69" />
 
 
 ## Fedora Version:
-<img width="1363" height="768" alt="2026-02-02-132603_hyprshot" src="https://github.com/user-attachments/assets/d442b54b-d973-4c0a-9c84-466508aaa815" />
+<img width="1366" height="768" alt="2026-02-06-002305_hyprshot" src="https://github.com/user-attachments/assets/ea2c4236-00dd-4bac-b2f6-e94717ffdfd5" />
+<img width="1366" height="768" alt="2026-02-06-002138_hyprshot" src="https://github.com/user-attachments/assets/8cfdafb4-b080-47ec-a507-914ec31f811f" />
 
+--------------------------------
+
+## Archived Supported Distros 
+
+# Warning !!!
+these linux distros are outdated and  no longer  supported , but you can use it With OmGlass-7.0
+
+## ubuntu-Version DEC-2025:
+![OmGlass-7 0-DEC2025](https://github.com/user-attachments/assets/7e8d0791-c4f4-4714-bde5-906b6822319a)
 
 *Created By ghvbb , locas*
 
