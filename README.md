@@ -5,7 +5,7 @@
 
 CarmonyOS is a pro UI redesign for Linux Distros and (Omarhcy) . While the original Distros focuses on stability and reliability, CarmonyOS is built for those who crave aesthetics without compromising performance.
 
-Developed over 8 weeks of intensive design work, Carmony introduces the **Transparent & Prodictivity**—a unique blend of the sleek **Glass Style** aesthetic and the powerful foundations of Omarchy , EndeavorOS, Arch Linux, Fedora, And More.
+Developed over 8 weeks of intensive design work, Carmony introduces the **Transparent & Prodictivity**—a unique blend of the sleek **Style** aesthetic and the powerful foundations of Omarchy , EndeavorOS, Arch Linux, Fedora, And More.
 
 ---
 
