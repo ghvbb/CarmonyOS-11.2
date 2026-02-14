@@ -1,4 +1,4 @@
-# CarmonyOS 11.2
+# CarmonyOS 18.2
 
 
 **Elevating Omarchy UI to the Next Level**
