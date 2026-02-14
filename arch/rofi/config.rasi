@@ -1,0 +1,275 @@
+/* ~/.config/rofi/config.rasi */
+/* MD3 Material Design App Launcher with Dynamic Wallpaper Colors */
+
+/* ─────────────────────────────────────────── */
+/* Import auto-generated wallpaper colors      */
+/* ─────────────────────────────────────────── */
+@import "~/.cache/colors/colors.rasi"
+
+/* ─────────────────────────────────────────── */
+/* Semantic Color Mapping from imported colors */
+/* ─────────────────────────────────────────── */
+* {
+    /* Core MD3 surfaces - mapped from wallpaper palette */
+    md3-background:             @background;
+    md3-background-alt:         @background-alt;
+    md3-surface:                @surface;
+    md3-foreground:             @foreground;
+    md3-primary:                @primary;
+    md3-secondary:              @secondary;
+    md3-accent:                 @accent;
+    md3-urgent:                 @urgent;
+    md3-success:                @success;
+    md3-warning:                @warning;
+
+    /* Derived semantic tokens */
+    md3-foreground-dim:         @color8;
+    md3-separator:              @color8;
+    md3-selected:               @primary;
+    md3-selected-text:          @background;
+    md3-active:                 @success;
+    md3-border:                 @color8;
+    md3-on-primary:             @background;
+    md3-primary-container:      @selected-background;
+    md3-on-surface-variant:     @color7;
+}
+
+/* ─────────────────────────────────────────── */
+/* Configuration                               */
+/* ─────────────────────────────────────────── */
+configuration {
+    modi:                       "drun,run,window";
+    show-icons:                 true;
+    display-drun:               "Apps";
+    display-run:                "Run";
+    display-filebrowser:        "Files";
+    display-window:             "Windows";
+    drun-display-format:        "{name}";
+    window-format:              "{c} · {t}";
+    font:                       "Google Sans Display 12";
+    icon-theme:                 "Papirus-Dark";
+    hover-select:               true;
+    me-select-entry:            "";
+    me-accept-entry:            "MousePrimary";
+    cursor:                     "default";
+    steal-focus:                true;
+    case-sensitive:             false;
+    sort:                       true;
+    sorting-method:             "fzf";
+    matching:                   "fuzzy";
+    click-to-exit:              true;
+    drun-match-fields:          "name,generic,exec,categories,keywords";
+}
+
+/* ─────────────────────────────────────────── */
+/* Global Reset                                */
+/* ─────────────────────────────────────────── */
+* {
+    background-color:           transparent;
+    margin:                     0;
+    padding:                    0;
+}
+
+/* ─────────────────────────────────────────── */
+/* Window                                      */
+/* ─────────────────────────────────────────── */
+window {
+    transparency:               "real";
+    location:                   center;
+    anchor:                     center;
+    fullscreen:                 false;
+    width:                      820px;
+    x-offset:                   0;
+    y-offset:                   0;
+    enabled:                    true;
+    border-radius:              23px;
+    border:                     1px solid;
+    border-color:               @md3-border;
+    cursor:                     "default";
+    background-color:           @md3-background;
+}
+
+/* ─────────────────────────────────────────── */
+/* Main Box                                    */
+/* ─────────────────────────────────────────── */
+mainbox {
+    enabled:                    true;
+    spacing:                    26px;
+    padding:                    30px 34px 32px 34px;
+    orientation:                vertical;
+    children:                   [ "inputbar", "listview", "message" ];
+    background-color:           transparent;
+}
+
+/* ─────────────────────────────────────────── */
+/* Input Bar                                   */
+/* ─────────────────────────────────────────── */
+inputbar {
+    enabled:                    true;
+    spacing:                    14px;
+    padding:                    16px 20px;
+    border:                     1px solid;
+    border-color:               @md3-separator;
+    border-radius:              14px;
+    background-color:           @md3-background-alt;
+    text-color:                 @md3-foreground;
+    children:                   [ "textbox-prompt", "entry" ];
+}
+
+textbox-prompt {
+    enabled:                    true;
+    expand:                     false;
+    str:                        "󰍉";
+    font:                       "Symbols Nerd Font 14";
+    background-color:           transparent;
+    text-color:                 @md3-foreground-dim;
+    vertical-align:             0.5;
+    horizontal-align:           0.5;
+}
+
+prompt {
+    enabled:                    true;
+    background-color:           transparent;
+    text-color:                 @md3-foreground;
+}
+
+entry {
+    enabled:                    true;
+    background-color:           transparent;
+    text-color:                 @md3-foreground;
+    cursor:                     text;
+    placeholder:                "Type to search…";
+    placeholder-color:          @md3-foreground-dim;
+    vertical-align:             0.5;
+}
+
+/* ─────────────────────────────────────────── */
+/* List View                                   */
+/* ─────────────────────────────────────────── */
+listview {
+    enabled:                    true;
+    columns:                    4;
+    lines:                      3;
+    cycle:                      true;
+    dynamic:                    true;
+    scrollbar:                  false;
+    layout:                     vertical;
+    reverse:                    false;
+    fixed-height:               true;
+    fixed-columns:              false;
+    spacing:                    22px;
+    background-color:           transparent;
+    text-color:                 @md3-foreground;
+    cursor:                     "default";
+}
+
+/* ─────────────────────────────────────────── */
+/* Elements                                    */
+/* ─────────────────────────────────────────── */
+element {
+    enabled:                    true;
+    orientation:                vertical;
+    spacing:                    14px;
+    padding:                    26px 16px 22px 16px;
+    border-radius:              16px;
+    cursor:                     pointer;
+    background-color:           transparent;
+    text-color:                 @md3-foreground;
+    border:                     1px solid;
+    border-color:               transparent;
+}
+
+element normal.normal {
+    background-color:           transparent;
+    text-color:                 @md3-foreground;
+}
+
+element normal.urgent {
+    background-color:           transparent;
+    text-color:                 @md3-urgent;
+}
+
+element normal.active {
+    background-color:           @md3-background-alt;
+    text-color:                 @md3-active;
+    border-color:               @md3-separator;
+}
+
+element selected.normal {
+    background-color:           @md3-primary-container;
+    text-color:                 @md3-foreground;
+    border-color:               @md3-primary;
+}
+
+element selected.urgent {
+    background-color:           @md3-urgent;
+    text-color:                 @md3-selected-text;
+    border-color:               @md3-urgent;
+}
+
+element selected.active {
+    background-color:           @md3-active;
+    text-color:                 @md3-selected-text;
+    border-color:               @md3-active;
+}
+
+element alternate.normal {
+    background-color:           transparent;
+    text-color:                 @md3-foreground;
+}
+
+element alternate.urgent {
+    background-color:           transparent;
+    text-color:                 @md3-urgent;
+}
+
+element alternate.active {
+    background-color:           @md3-background-alt;
+    text-color:                 @md3-active;
+    border-color:               @md3-separator;
+}
+
+element-icon {
+    background-color:           transparent;
+    text-color:                 inherit;
+    size:                       64px;
+    cursor:                     inherit;
+    horizontal-align:           0.5;
+}
+
+element-text {
+    background-color:           transparent;
+    text-color:                 inherit;
+    highlight:                  inherit;
+    cursor:                     inherit;
+    vertical-align:             0.5;
+    horizontal-align:           0.5;
+    font:                       "Google Sans Display 10";
+}
+
+/* ─────────────────────────────────────────── */
+/* Message / Error                             */
+/* ─────────────────────────────────────────── */
+message {
+    enabled:                    true;
+    padding:                    0;
+    background-color:           transparent;
+}
+
+textbox {
+    padding:                    16px 20px;
+    border-radius:              12px;
+    background-color:           @md3-background-alt;
+    text-color:                 @md3-foreground-dim;
+    vertical-align:             0.5;
+    horizontal-align:           0.5;
+}
+
+error-message {
+    padding:                    20px;
+    border-radius:              14px;
+    background-color:           @md3-background;
+    text-color:                 @md3-urgent;
+    border:                     1px solid;
+    border-color:               @md3-urgent;
+}

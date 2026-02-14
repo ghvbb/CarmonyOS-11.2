@@ -1,0 +1,115 @@
+/* CarmonyOS Theme: Pure Dark */
+/* @foreground rgba(220, 220, 220, 0.8) | @background rgba(8, 8, 8, 0.6) */
+
+* {
+    /* Base pair */
+    foreground: #dcdcdc;
+    background: #080808;
+
+    /* Derived */
+    accent: #676767;
+    surface: #181818;
+    border-clr: #363636;
+    highlight-clr: #7c7c7c;
+    muted: #525252;
+
+    /* Rofi standard properties */
+    background-color: rgba(8, 8, 8, 0.9);
+    text-color: #dcdcdc;
+    border-color: rgba(54, 54, 54, 0.5);
+
+    /* Normal */
+    normal-background: transparent;
+    normal-foreground: #dcdcdc;
+    alternate-normal-background: rgba(24, 24, 24, 0.3);
+    alternate-normal-foreground: #dcdcdc;
+
+    /* Selected */
+    selected-normal-background: rgba(103, 103, 103, 0.6);
+    selected-normal-foreground: #dcdcdc;
+    selected-active-background: rgba(103, 103, 103, 0.8);
+    selected-active-foreground: #dcdcdc;
+
+    /* Urgent */
+    urgent-background: transparent;
+    urgent-foreground: #7c7c7c;
+    selected-urgent-background: rgba(124, 124, 124, 0.8);
+    selected-urgent-foreground: #dcdcdc;
+
+    /* Active */
+    active-background: rgba(103, 103, 103, 0.2);
+    active-foreground: #dcdcdc;
+}
+
+window {
+    background-color: rgba(8, 8, 8, 0.9);
+    border: 2px solid rgba(54, 54, 54, 0.5);
+    border-radius: 16px;
+    padding: 10px;
+}
+
+mainbox {
+    background-color: transparent;
+}
+
+inputbar {
+    background-color: rgba(24, 24, 24, 0.5);
+    text-color: #dcdcdc;
+    border-radius: 12px;
+    padding: 10px 16px;
+    margin: 0 0 10px 0;
+    border: 1px solid rgba(54, 54, 54, 0.3);
+}
+
+prompt {
+    text-color: #676767;
+}
+
+entry {
+    text-color: #dcdcdc;
+    placeholder-color: #525252;
+}
+
+listview {
+    background-color: transparent;
+    lines: 8;
+    spacing: 4px;
+}
+
+element {
+    background-color: transparent;
+    text-color: #dcdcdc;
+    border-radius: 10px;
+    padding: 8px 14px;
+}
+
+element selected {
+    background-color: rgba(103, 103, 103, 0.4);
+    text-color: #dcdcdc;
+    border: 1px solid rgba(103, 103, 103, 0.6);
+}
+
+element-icon {
+    size: 24px;
+    margin: 0 10px 0 0;
+}
+
+element-text {
+    text-color: inherit;
+}
+
+scrollbar {
+    handle-color: rgba(54, 54, 54, 0.5);
+    handle-width: 6px;
+    border-radius: 3px;
+}
+
+message {
+    background-color: rgba(24, 24, 24, 0.3);
+    border-radius: 10px;
+    padding: 8px;
+}
+
+textbox {
+    text-color: #dcdcdc;
+}
