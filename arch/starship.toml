@@ -1,0 +1,269 @@
+# ══════════════════════════════════════════
+#   starship · minimal · fast · clean
+# ══════════════════════════════════════════
+
+add_newline = true
+scan_timeout = 10
+command_timeout = 150
+
+format = """
+ $os$directory$git_branch$git_status$python$nodejs$rust$golang
+ $character"""
+
+
+[character]
+success_symbol = "[╰─](bold cyan)"
+error_symbol = "[╰─](bold red)"
+vimcmd_symbol = "[╰─](bold purple)"
+
+
+[os]
+disabled = true
+format = '[$symbol ](bold yellow)'
+
+[os.symbols]
+Arch = ""
+Ubuntu = ""
+Fedora = ""
+Debian = ""
+NixOS = ""
+Manjaro = ""
+Linux = ""
+Windows = ""
+Macos = ""
+
+
+[directory]
+format = "[󰉋 $path]($style)[$read_only]($read_only_style) "
+style = "bold green"
+read_only = " 󰌾"
+read_only_style = "bold red"
+truncation_length = 3
+truncation_symbol = "…/"
+truncate_to_repo = true
+home_symbol = "~"
+
+[directory.substitutions]
+"Documents" = "󰈙"
+"Downloads" = ""
+"Music" = "󰎈"
+"Pictures" = "󰋩"
+"Videos" = "󰕧"
+"Projects" = "󰅨"
+"Desktop" = "󰇄"
+".config" = ""
+"GitHub" = "󰊤"
+"dotfiles" = ""
+[git_branch]
+format = "󰘬 [$branch]($style) "
+style = "bold purple"
+truncation_length = 20
+truncation_symbol = "…"
+[git_status]
+format = '([$all_status$ahead_behind]($style))'
+style = "bold yellow"
+conflicted = "= "
+ahead = "⇡ "
+behind = "⇣ "
+diverged = "⇕ "
+untracked = "? "
+stashed = "* "
+modified = "! "
+staged = "+ "
+renamed = "» "
+deleted = "✘ "
+[git_commit]
+disabled = true
+[git_state]
+format = '[$state( $progress_current/$progress_total)]($style) '
+style = "bold yellow"
+[git_metrics]
+disabled = true
+[python]
+format = '[ $virtualenv]($style) '
+symbol = ""
+style = "bold yellow"
+detect_extensions = ["py"]
+detect_files = ["requirements.txt", "pyproject.toml", "setup.py", ".python-version"]
+detect_folders = [".venv", "venv"]
+pyenv_version_name = true
+[nodejs]
+format = '[󰎙 $version]($style) '
+style = "bold green"
+detect_extensions = ["js", "ts"]
+detect_files = ["package.json"]
+detect_folders = ["node_modules"]
+[rust]
+format = '[󱘗 $version]($style) '
+style = "bold red"
+detect_extensions = ["rs"]
+detect_files = ["Cargo.toml"]
+[golang]
+format = '[󰟓 $version]($style) '
+style = "bold cyan"
+detect_extensions = ["go"]
+detect_files = ["go.mod"]
+[c]
+format = '[ $version]($style) '
+style = "bold blue"
+detect_extensions = ["c", "h"]
+[lua]
+format = '[󰢱 $version]($style) '
+style = "bold blue"
+detect_extensions = ["lua"]
+[java]
+format = '[󰬷 $version]($style) '
+style = "bold red"
+detect_extensions = ["java"]
+detect_files = ["pom.xml", "build.gradle"]
+[username]
+format = "[$user]($style)"
+style_user = "bold dimmed white"
+style_root = "bold red"
+show_always = false
+[hostname]
+format = "[@$hostname]($style) "
+style = "bold dimmed white"
+ssh_only = true
+ssh_symbol = "󰣀 "
+[sudo]
+format = "[󰞀 ]($style)"
+style = "bold red"
+disabled = false
+[jobs]
+format = "[◉ $number]($style) "
+style = "bold blue"
+number_threshold = 1
+[line_break]
+disabled = true
+[time]
+disabled = true
+[cmd_duration]
+disabled = true
+[memory_usage]
+disabled = true
+[battery]
+disabled = true
+[package]
+disabled = true
+[docker_context]
+disabled = true
+[conda]
+disabled = true
+[nix_shell]
+disabled = true
+[aws]
+disabled = true
+[gcloud]
+disabled = true
+[azure]
+disabled = true
+[terraform]
+disabled = true
+[kubernetes]
+disabled = true
+[vagrant]
+disabled = true
+[helm]
+disabled = true
+[pulumi]
+disabled = true
+[singularity]
+disabled = true
+[vcsh]
+disabled = true
+[fossil_branch]
+disabled = true
+[hg_branch]
+disabled = true
+[pijul_channel]
+disabled = true
+[buf]
+disabled = true
+[cmake]
+disabled = true
+[cobol]
+disabled = true
+[crystal]
+disabled = true
+[daml]
+disabled = true
+[dart]
+disabled = true
+[deno]
+disabled = true
+[dotnet]
+disabled = true
+[elixir]
+disabled = true
+[elm]
+disabled = true
+[erlang]
+disabled = true
+[fennel]
+disabled = true
+[gleam]
+disabled = true
+[guix_shell]
+disabled = true
+[haskell]
+disabled = true
+[julia]
+disabled = true
+[kotlin]
+disabled = true
+[meson]
+disabled = true
+[nim]
+disabled = true
+[ocaml]
+disabled = true
+[opa]
+disabled = true
+[perl]
+disabled = true
+[php]
+disabled = true
+[purescript]
+disabled = true
+[raku]
+disabled = true
+[red]
+disabled = true
+[rlang]
+disabled = true
+[ruby]
+disabled = true
+[scala]
+disabled = true
+[solidity]
+disabled = true
+[swift]
+disabled = true
+[typst]
+disabled = true
+[vlang]
+disabled = true
+[zig]
+disabled = true
+[os.symbols.disabled]
+disabled = true
+[container]
+disabled = true
+[env_var]
+disabled = true
+[custom]
+disabled = true
+[shell]
+disabled = true
+[shlvl]
+disabled = true
+[localip]
+disabled = true
+[status]
+disabled = true
+[fill]
+disabled = true
+
+
+

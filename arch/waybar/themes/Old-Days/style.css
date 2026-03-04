@@ -1,0 +1,613 @@
+@import "../../.cache/colors/colors.css";
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   Waybar · Minimal · Full Bar · Centered Modules
+   Solid background with subtle transparency for blur
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+* {
+    all: unset;
+    font-family: 'Google Sans Display', 'Google Sans', 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    min-height: 0;
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    outline: none;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+
+/* ── Window — Full solid bar with slight transparency for blur ── */
+
+window#waybar {
+    background: alpha(@surface_container, 0.85);
+    color: @on_surface;
+    border-bottom: 1px solid alpha(@outline_variant, 0.12);
+}
+
+window#waybar.hidden {
+    margin-top: -36px;
+}
+
+window#waybar.empty {
+    background: alpha(@surface_container, 0.85);
+}
+
+
+/* ── Containers — All centered ── */
+
+.modules-left {
+    background: transparent;
+}
+
+.modules-center {
+    background: transparent;
+    padding: 0 2px;
+}
+
+.modules-right {
+    background: transparent;
+}
+
+
+/* ── Tooltip ── */
+
+tooltip {
+    background: alpha(@surface_container_high, 0.92);
+    border: 1px solid alpha(@outline_variant, 0.12);
+    border-radius: 10px;
+}
+
+tooltip * {
+    background: transparent;
+}
+
+tooltip label {
+    color: @on_surface;
+    font-size: 11px;
+    padding: 7px 11px;
+}
+
+
+/* ── Launcher ── */
+
+#custom-launcher {
+    background: alpha(@primary_container, 0.8);
+    color: @on_primary_container;
+    font-size: 14px;
+    padding: 0 11px;
+    margin: 3px 2px 3px 2px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+#custom-launcher:hover {
+    background: alpha(@primary, 0.85);
+    color: @on_primary;
+}
+
+
+/* ── Separators ── */
+
+#custom-separator-dot {
+    color: alpha(@outline_variant, 0.25);
+    font-size: 6px;
+    padding: 0 4px;
+}
+
+#custom-separator-left {
+    color: alpha(@outline_variant, 0.12);
+    font-size: 10px;
+    padding: 0 2px;
+    margin: 6px 0;
+}
+
+
+/* ── Workspaces ── */
+
+#workspaces {
+    background: alpha(@on_surface, 0.04);
+    margin: 3px 1px;
+    padding: 2px 2px;
+    border-radius: 8px;
+}
+
+#workspaces button {
+    color: @on_surface_variant;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 0 6px;
+    margin: 0 1px;
+    border-radius: 6px;
+    min-width: 8px;
+    min-height: 20px;
+    transition: all 0.2s ease;
+}
+
+#workspaces button:hover {
+    background: alpha(@on_surface, 0.06);
+    color: @on_surface;
+}
+
+#workspaces button.active {
+    background: alpha(@primary, 0.88);
+    color: @on_primary;
+    font-weight: 700;
+    min-width: 22px;
+    padding: 0 8px;
+    border-radius: 7px;
+}
+
+#workspaces button.active:hover {
+    background: alpha(@primary, 0.75);
+}
+
+#workspaces button.empty {
+    color: alpha(@outline, 0.25);
+    min-width: 4px;
+    padding: 0 4px;
+}
+
+#workspaces button.empty:hover {
+    background: alpha(@on_surface, 0.03);
+    color: @on_surface_variant;
+}
+
+#workspaces button.urgent {
+    background: alpha(@error, 0.85);
+    color: @on_error;
+}
+
+#workspaces button.visible {
+    color: @primary;
+    background: alpha(@primary, 0.07);
+}
+
+#workspaces button.focused {
+    background: alpha(@primary, 0.88);
+    color: @on_primary;
+}
+
+
+/* ── Media Player ── */
+
+#custom-media-player {
+    background: alpha(@secondary_container, 0.2);
+    color: alpha(@on_secondary_container, 0.85);
+    font-size: 11px;
+    padding: 0 9px;
+    margin: 3px 2px;
+    border-radius: 7px;
+    min-width: 180px;
+    transition: all 0.2s ease;
+}
+
+#custom-media-player:hover {
+    background: alpha(@secondary_container, 0.35);
+    color: @on_secondary_container;
+}
+
+#custom-media-player.Playing {
+    color: alpha(@on_secondary_container, 0.85);
+}
+
+#custom-media-player.Paused {
+    color: alpha(@on_secondary_container, 0.35);
+    background: alpha(@secondary_container, 0.1);
+}
+
+#custom-media-player.stopped {
+    color: alpha(@outline, 0.3);
+    background: transparent;
+    padding: 0 3px;
+    min-width: 0;
+}
+
+
+/* ── Tray ── */
+
+#tray {
+    padding: 0 3px;
+    margin: 3px 1px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+#tray:hover {
+    background: alpha(@on_surface, 0.04);
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+#tray menu {
+    background: alpha(@surface_container_high, 0.94);
+    border: 1px solid alpha(@outline_variant, 0.1);
+    border-radius: 10px;
+    padding: 4px;
+}
+
+#tray menu separator {
+    background: alpha(@outline_variant, 0.15);
+    margin: 2px 8px;
+    min-height: 1px;
+}
+
+#tray menu menuitem {
+    color: @on_surface;
+    font-size: 11px;
+    padding: 6px 12px;
+    margin: 1px 3px;
+    border-radius: 6px;
+    transition: all 0.15s ease;
+}
+
+#tray menu menuitem:hover {
+    background: alpha(@on_surface, 0.06);
+}
+
+#tray menu menuitem:disabled {
+    color: alpha(@outline, 0.3);
+}
+
+
+/* ── Network ── */
+
+#network {
+    color: @on_surface;
+    font-size: 13px;
+    padding: 0 6px;
+    margin: 3px 1px;
+    border-radius: 6px;
+    min-width: 16px;
+    transition: all 0.2s ease;
+}
+
+#network:hover {
+    background: alpha(@on_surface, 0.05);
+}
+
+#network.disconnected {
+    color: alpha(@outline, 0.4);
+}
+
+#network.ethernet,
+#network.wifi {
+    color: @primary;
+}
+
+
+/* ── Bluetooth ── */
+
+#bluetooth {
+    color: @on_surface;
+    font-size: 12px;
+    padding: 0 6px;
+    margin: 3px 1px;
+    border-radius: 6px;
+    min-width: 16px;
+    transition: all 0.2s ease;
+}
+
+#bluetooth:hover {
+    background: alpha(@on_surface, 0.05);
+}
+
+#bluetooth.disabled,
+#bluetooth.off {
+    color: alpha(@outline, 0.3);
+}
+
+#bluetooth.connected {
+    color: @tertiary;
+}
+
+
+/* ── Volume ── */
+
+#pulseaudio {
+    color: @on_surface;
+    font-size: 13px;
+    padding: 0 6px;
+    margin: 3px 1px;
+    border-radius: 6px;
+    min-width: 16px;
+    transition: all 0.2s ease;
+}
+
+#pulseaudio:hover {
+    background: alpha(@on_surface, 0.05);
+}
+
+#pulseaudio.muted {
+    color: alpha(@outline, 0.35);
+}
+
+#pulseaudio.bluetooth {
+    color: @tertiary;
+}
+
+
+/* ── Backlight ── */
+
+#backlight {
+    color: @on_surface;
+    font-size: 13px;
+    padding: 0 6px;
+    margin: 3px 1px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+#backlight:hover {
+    background: alpha(@on_surface, 0.05);
+}
+
+
+/* ── Battery ── */
+
+#battery {
+    color: @on_surface;
+    font-size: 13px;
+    padding: 0 6px;
+    margin: 3px 1px;
+    border-radius: 6px;
+    min-width: 16px;
+    transition: all 0.2s ease;
+}
+
+#battery:hover {
+    background: alpha(@on_surface, 0.05);
+}
+
+#battery.charging,
+#battery.plugged,
+#battery.full {
+    color: @primary;
+}
+
+#battery.warning {
+    color: @tertiary;
+}
+
+#battery.critical {
+    color: @error;
+}
+
+
+/* ── Clock ── */
+
+#clock {
+    color: @on_surface;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 0 8px;
+    margin: 3px 1px;
+    border-radius: 7px;
+    letter-spacing: 0.3px;
+    transition: all 0.2s ease;
+}
+
+#clock:hover {
+    background: alpha(@on_surface, 0.05);
+}
+
+
+/* ── Power ── */
+
+#custom-power {
+    background: alpha(@on_surface, 0.04);
+    color: @on_surface_variant;
+    font-size: 12px;
+    padding: 0 9px;
+    margin: 3px 2px 3px 1px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+#custom-power:hover {
+    background: alpha(@error, 0.85);
+    color: @on_error;
+}
+
+
+/* ── Window Title ── */
+
+#window {
+    color: alpha(@on_surface_variant, 0.5);
+    font-size: 11px;
+    padding: 0 6px;
+    margin: 3px 2px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+#window:hover {
+    background: alpha(@on_surface, 0.03);
+    color: @on_surface_variant;
+}
+
+#window.empty {
+    padding: 0;
+    min-width: 0;
+}
+
+#window.floating {
+    font-style: italic;
+}
+
+
+/* ── Temperature ── */
+
+#temperature {
+    color: @on_surface;
+    font-size: 13px;
+    padding: 0 6px;
+    margin: 3px 1px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+#temperature:hover {
+    background: alpha(@on_surface, 0.05);
+}
+
+#temperature.warning {
+    color: @tertiary;
+}
+
+#temperature.critical {
+    color: @error;
+}
+
+
+/* ── CPU & Memory ── */
+
+#cpu,
+#memory {
+    color: alpha(@on_surface_variant, 0.7);
+    font-size: 10px;
+    padding: 0 6px;
+    margin: 3px 1px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+#cpu:hover,
+#memory:hover {
+    background: alpha(@on_surface, 0.05);
+    color: @on_surface;
+}
+
+
+/* ── Idle Inhibitor ── */
+
+#idle_inhibitor {
+    color: @on_surface_variant;
+    font-size: 12px;
+    padding: 0 6px;
+    margin: 3px 1px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+#idle_inhibitor:hover {
+    background: alpha(@on_surface, 0.05);
+}
+
+#idle_inhibitor.activated {
+    color: @primary;
+    background: alpha(@primary, 0.07);
+}
+
+#idle_inhibitor.deactivated {
+    color: alpha(@outline, 0.35);
+}
+
+
+/* ── Language ── */
+
+#language {
+    color: alpha(@on_surface_variant, 0.7);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 0 6px;
+    margin: 3px 1px;
+    border-radius: 6px;
+    letter-spacing: 0.3px;
+    transition: all 0.2s ease;
+}
+
+#language:hover {
+    background: alpha(@on_surface, 0.05);
+    color: @on_surface;
+}
+
+
+/* ── Updates ── */
+
+#custom-update {
+    color: @on_surface;
+    font-size: 12px;
+    padding: 0 6px;
+    margin: 3px 1px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+#custom-update:hover {
+    background: alpha(@on_surface, 0.05);
+}
+
+#custom-update.pending {
+    color: @primary;
+}
+
+
+/* ── Screen Recording ── */
+
+#custom-screenrecording-indicator {
+    color: @on_surface;
+    font-size: 10px;
+    padding: 0 6px;
+    margin: 3px 1px;
+    border-radius: 6px;
+}
+
+#custom-screenrecording-indicator.recording {
+    background: alpha(@error_container, 0.6);
+    color: @on_error_container;
+    padding: 0 8px;
+    border-radius: 7px;
+}
+
+#custom-screenrecording-indicator.recording:hover {
+    background: alpha(@error, 0.85);
+    color: @on_error;
+}
+
+
+/* ── Tray Expander ── */
+
+#group-tray-expander {
+    padding: 0;
+    margin: 0 1px;
+}
+
+#custom-tray-toggle {
+    color: alpha(@on_surface_variant, 0.6);
+    font-size: 9px;
+    padding: 0 4px;
+    margin: 3px 1px;
+    border-radius: 5px;
+    transition: all 0.2s ease;
+}
+
+#custom-tray-toggle:hover {
+    background: alpha(@on_surface, 0.05);
+    color: @on_surface;
+}
+
+
+/* ── Fullscreen ── */
+
+window#waybar.fullscreen {
+    background: alpha(@surface_container, 0.7);
+    border-bottom: none;
+}
+
+window#waybar.fullscreen .modules-left,
+window#waybar.fullscreen .modules-center,
+window#waybar.fullscreen .modules-right {
+    background: transparent;
+}

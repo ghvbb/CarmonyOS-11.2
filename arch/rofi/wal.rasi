@@ -1,0 +1,224 @@
+configuration {
+    modi:                        "drun,run,filebrowser,window";
+    show-icons:                  true;
+    display-drun:                " ";
+    display-run:                 " ";
+    display-filebrowser:         " ";
+    display-window:              " ";
+    drun-display-format:         "{name}";
+    window-format:               "{w} · {c} · {t}";
+    font:                        "JetBrainsMono Nerd Font 11";
+    icon-theme:                  "Papirus-Dark";
+}
+
+* {
+    bg-main:                     rgba(15, 15, 20, 0.85);
+    bg-secondary:                rgba(25, 25, 35, 0.90);
+    bg-alt:                      rgba(35, 35, 50, 0.80);
+    bg-selected:                 rgba(80, 80, 120, 0.95);
+    bg-hover:                    rgba(60, 60, 85, 0.85);
+    
+    fg-main:                     rgba(220, 220, 230, 1);
+    fg-secondary:                rgba(160, 160, 175, 1);
+    fg-accent:                   rgba(130, 170, 255, 1);
+    fg-urgent:                   rgba(255, 100, 120, 1);
+    
+    border-color:                rgba(70, 70, 100, 0.6);
+    separator-color:             rgba(80, 80, 110, 0.4);
+    
+    transparent:                 rgba(0, 0, 0, 0);
+    
+    border-radius:               12px;
+    spacing:                     0;
+}
+
+window {
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    width:                       680px;
+    x-offset:                    0px;
+    y-offset:                    0px;
+    enabled:                     true;
+    border:                      2px solid;
+    border-color:                @border-color;
+    border-radius:               16px;
+    cursor:                      "default";
+    background-color:            @bg-main;
+}
+
+mainbox {
+    enabled:                     true;
+    spacing:                     12px;
+    padding:                     20px;
+    background-color:            @transparent;
+    children:                    [ "inputbar", "message", "listview", "mode-switcher" ];
+}
+
+inputbar {
+    enabled:                     true;
+    spacing:                     12px;
+    padding:                     14px 18px;
+    background-color:            @bg-secondary;
+    border-radius:               @border-radius;
+    text-color:                  @fg-main;
+    children:                    [ "textbox-prompt-colon", "entry" ];
+}
+
+textbox-prompt-colon {
+    enabled:                     true;
+    expand:                      false;
+    str:                         "";
+    padding:                     0px 8px 0px 0px;
+    background-color:            @transparent;
+    text-color:                  @fg-accent;
+    font:                        "JetBrainsMono Nerd Font 14";
+}
+
+entry {
+    enabled:                     true;
+    expand:                      true;
+    background-color:            @transparent;
+    text-color:                  @fg-main;
+    cursor:                      text;
+    placeholder:                 "Search...";
+    placeholder-color:           @fg-secondary;
+}
+
+listview {
+    enabled:                     true;
+    columns:                     1;
+    lines:                       8;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   true;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    spacing:                     6px;
+    padding:                     6px;
+    background-color:            @transparent;
+    cursor:                      "default";
+}
+
+scrollbar {
+    handle-width:                5px;
+    handle-color:                @fg-secondary;
+    border-radius:               @border-radius;
+    background-color:            @bg-alt;
+}
+
+element {
+    enabled:                     true;
+    spacing:                     14px;
+    padding:                     10px 14px;
+    background-color:            @transparent;
+    border-radius:               10px;
+    text-color:                  @fg-main;
+    cursor:                      pointer;
+}
+
+element normal.normal {
+    background-color:            @transparent;
+    text-color:                  @fg-main;
+}
+
+element normal.urgent {
+    background-color:            @transparent;
+    text-color:                  @fg-urgent;
+}
+
+element normal.active {
+    background-color:            @bg-alt;
+    text-color:                  @fg-accent;
+}
+
+element selected.normal {
+    background-color:            @bg-selected;
+    text-color:                  @fg-main;
+}
+
+element selected.urgent {
+    background-color:            @bg-selected;
+    text-color:                  @fg-urgent;
+}
+
+element selected.active {
+    background-color:            @bg-selected;
+    text-color:                  @fg-accent;
+}
+
+element alternate.normal {
+    background-color:            @transparent;
+    text-color:                  @fg-main;
+}
+
+element alternate.urgent {
+    background-color:            @transparent;
+    text-color:                  @fg-urgent;
+}
+
+element alternate.active {
+    background-color:            @bg-alt;
+    text-color:                  @fg-accent;
+}
+
+element-icon {
+    background-color:            @transparent;
+    text-color:                  inherit;
+    size:                        28px;
+    cursor:                      inherit;
+}
+
+element-text {
+    background-color:            @transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+}
+
+mode-switcher {
+    enabled:                     true;
+    spacing:                     10px;
+    padding:                     0px;
+    background-color:            @transparent;
+}
+
+button {
+    padding:                     10px 20px;
+    background-color:            @bg-alt;
+    text-color:                  @fg-secondary;
+    border-radius:               @border-radius;
+    cursor:                      pointer;
+}
+
+button selected {
+    background-color:            @bg-selected;
+    text-color:                  @fg-main;
+}
+
+message {
+    enabled:                     true;
+    padding:                     12px;
+    background-color:            @bg-alt;
+    border-radius:               @border-radius;
+}
+
+textbox {
+    background-color:            @transparent;
+    text-color:                  @fg-secondary;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+}
+
+error-message {
+    padding:                     16px;
+    background-color:            @bg-main;
+    text-color:                  @fg-urgent;
+    border:                      2px solid;
+    border-color:                @fg-urgent;
+    border-radius:               @border-radius;
+}

@@ -1,0 +1,821 @@
+/* ══════════════════════════════════════════════════════════════════════════════
+   
+   ██╗    ██╗ █████╗ ██╗   ██╗██████╗  █████╗ ██████╗ 
+   ██║    ██║██╔══██╗╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+   ██║ █╗ ██║███████║ ╚████╔╝ ██████╔╝███████║██████╔╝
+   ██║███╗██║██╔══██║  ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+   ╚███╔███╔╝██║  ██║   ██║   ██████╔╝██║  ██║██║  ██║
+    ╚══╝╚══╝ ╚═╝  ╚═╝   ╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+   
+   
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+@import "../../.cache/colors/colors.css";
+
+* {
+    all: unset;
+    font-family: 'Google Sans Display', 'Google Sans', 'SF Pro Display', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    min-height: 0;
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    outline: none;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+
+
+window#waybar {
+    background: transparent;
+    color: @on_surface;
+}
+
+window#waybar.hidden {
+    margin-top: -50px;
+}
+
+window#waybar.empty {
+    background: transparent;
+}
+
+
+
+.modules-left {
+    background: alpha(@surface_container, 0.75);
+    border: 1px solid alpha(@outline_variant, 0.4);
+    border-radius: 14px;
+    margin: 4px 0 4px 4px;
+    padding: 0 6px;
+}
+
+.modules-center {
+    background: alpha(@surface_container, 0.75);
+    border: 1px solid alpha(@outline_variant, 0.4);
+    border-radius: 14px;
+    margin: 4px 0;
+    padding: 0 16px;
+}
+
+.modules-right {
+    background: alpha(@surface_container, 0.75);
+    border: 1px solid alpha(@outline_variant, 0.4);
+    border-radius: 14px;
+    margin: 4px 4px 4px 0;
+    padding: 0 6px;
+}
+
+
+
+tooltip {
+    background: alpha(@surface_container_high, 0.92);
+    border: 1px solid alpha(@outline_variant, 0.5);
+    border-radius: 12px;
+    padding: 0;
+}
+
+tooltip * {
+    background: transparent;
+}
+
+tooltip label {
+    color: @on_surface;
+    font-family: 'Google Sans Display', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 10px 14px;
+    min-width: 30px;
+}
+
+
+
+#custom-launcher {
+    background: alpha(@primary, 0.15);
+    color: @primary;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 0 14px;
+    margin: 5px 4px 5px 5px;
+    border-radius: 10px;
+    transition: 
+        all 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+        background 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#custom-launcher:hover {
+    background: @primary;
+    color: @on_primary;
+    padding: 0 18px;
+}
+
+
+
+#custom-separator-left {
+    background: transparent;
+    color: alpha(@outline, 0.3);
+    font-size: 10px;
+    padding: 0 4px;
+    margin: 0 2px;
+}
+
+#custom-separator-dot {
+    background: transparent;
+    color: alpha(@outline, 0.4);
+    font-size: 8px;
+    font-weight: 700;
+    padding: 0 8px;
+    margin: 0;
+}
+
+
+
+#workspaces {
+    background: transparent;
+    margin: 0 4px;
+    padding: 0;
+    border-radius: 10px;
+}
+
+#workspaces button {
+    background: transparent;
+    color: @on_surface_variant;
+    font-family: 'Google Sans Display', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0 10px;
+    margin: 5px 2px;
+    border-radius: 8px;
+    min-width: 22px;
+    min-height: 22px;
+    transition: 
+        all 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+        min-width 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+        color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#workspaces button:hover {
+    background: alpha(@surface_variant, 0.5);
+    color: @on_surface;
+    min-width: 30px;
+}
+
+#workspaces button.active {
+    background: @primary;
+    color: @on_primary;
+    font-weight: 600;
+    min-width: 36px;
+    padding: 0 14px;
+    border-radius: 10px;
+}
+
+#workspaces button.active:hover {
+    background: @primary_fixed_dim;
+    color: @on_primary;
+    min-width: 40px;
+}
+
+#workspaces button.empty {
+    color: alpha(@outline, 0.5);
+    min-width: 18px;
+    padding: 0 6px;
+}
+
+#workspaces button.empty:hover {
+    background: alpha(@surface_variant, 0.3);
+    color: @on_surface_variant;
+    min-width: 26px;
+}
+
+#workspaces button.urgent {
+    background: @error;
+    color: @on_error;
+    font-weight: 600;
+    animation: ws-pulse 1.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+#workspaces button.visible {
+    color: @primary_fixed_dim;
+    min-width: 24px;
+}
+
+#workspaces button.focused {
+    background: @primary;
+    color: @on_primary;
+    font-weight: 600;
+}
+
+
+
+
+#clock {
+    background: transparent;
+    color: @on_surface;
+    font-family: 'Google Sans Display', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 0 8px;
+    margin: 5px 0;
+    border-radius: 10px;
+    letter-spacing: 0.3px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#clock:hover {
+    background: alpha(@surface_variant, 0.4);
+    padding: 0 14px;
+}
+
+
+
+#custom-media {
+    background: transparent;
+    color: @secondary;
+    font-family: 'Google Sans Display', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 0 12px;
+    margin: 5px 4px;
+    border-radius: 10px;
+    min-width: 280px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#custom-media:hover {
+    background: alpha(@secondary_container, 0.4);
+    color: @on_secondary_container;
+    padding: 0 16px;
+}
+
+
+
+#tray {
+    background: transparent;
+    color: @on_surface;
+    padding: 0 8px;
+    margin: 5px 2px;
+    border-radius: 10px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#tray:hover {
+    background: alpha(@surface_variant, 0.3);
+    padding: 0 12px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+#tray menu {
+    background: alpha(@surface_container_high, 0.95);
+    border: 1px solid alpha(@outline_variant, 0.5);
+    border-radius: 12px;
+    padding: 8px 4px;
+}
+
+#tray menu separator {
+    background: alpha(@outline_variant, 0.4);
+    margin: 6px 12px;
+    min-height: 1px;
+}
+
+#tray menu menuitem {
+    background: transparent;
+    color: @on_surface;
+    font-family: 'Google Sans Display', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 10px 16px;
+    margin: 2px 6px;
+    border-radius: 8px;
+    min-height: 20px;
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#tray menu menuitem:hover {
+    background: alpha(@surface_variant, 0.5);
+    padding: 10px 20px;
+}
+
+#tray menu menuitem:disabled {
+    color: alpha(@on_surface, 0.35);
+}
+
+
+
+#network {
+    background: transparent;
+    color: @on_surface;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 0 10px;
+    margin: 5px 2px;
+    border-radius: 10px;
+    min-width: 20px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#network:hover {
+    background: alpha(@surface_variant, 0.4);
+    padding: 0 14px;
+}
+
+#network.disconnected {
+    color: alpha(@error, 0.6);
+}
+
+#network.disconnected:hover {
+    background: alpha(@error_container, 0.2);
+    color: @error;
+}
+
+#network.disabled {
+    color: alpha(@outline, 0.5);
+}
+
+#network.linked {
+    color: @secondary;
+}
+
+#network.ethernet {
+    color: @primary;
+}
+
+#network.wifi {
+    color: @primary;
+}
+
+
+
+#bluetooth {
+    background: transparent;
+    color: @on_surface;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0 10px;
+    margin: 5px 2px;
+    border-radius: 10px;
+    min-width: 20px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#bluetooth:hover {
+    background: alpha(@surface_variant, 0.4);
+    padding: 0 14px;
+}
+
+#bluetooth.disabled {
+    color: alpha(@outline, 0.5);
+}
+
+#bluetooth.off {
+    color: alpha(@outline, 0.5);
+}
+
+#bluetooth.on {
+    color: @tertiary;
+}
+
+#bluetooth.connected {
+    color: @tertiary;
+}
+
+#bluetooth.discoverable {
+    color: @tertiary;
+    animation: bt-blink 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+
+
+
+#pulseaudio {
+    background: transparent;
+    color: @on_surface;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 0 10px;
+    margin: 5px 2px;
+    border-radius: 10px;
+    min-width: 20px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#pulseaudio:hover {
+    background: alpha(@surface_variant, 0.4);
+    padding: 0 14px;
+}
+
+#pulseaudio.muted {
+    color: alpha(@outline, 0.5);
+}
+
+#pulseaudio.muted:hover {
+    background: alpha(@surface_variant, 0.3);
+    color: @on_surface_variant;
+}
+
+#pulseaudio.bluetooth {
+    color: @tertiary;
+}
+
+#pulseaudio.source-muted {
+    color: @on_surface_variant;
+}
+
+
+
+#battery {
+    background: transparent;
+    color: @on_surface;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 0 10px;
+    margin: 5px 2px;
+    border-radius: 10px;
+    min-width: 20px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#battery:hover {
+    background: alpha(@surface_variant, 0.4);
+    padding: 0 14px;
+}
+
+#battery.charging {
+    color: @primary;
+    animation: bat-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+#battery.charging:hover {
+    animation: none;
+}
+
+#battery.plugged {
+    color: @primary;
+}
+
+#battery.full {
+    color: @primary;
+}
+
+#battery.discharging {
+    color: @on_surface;
+}
+
+#battery.warning {
+    color: @tertiary;
+}
+
+#battery.warning:hover {
+    background: alpha(@tertiary_container, 0.3);
+}
+
+#battery.critical {
+    color: @error;
+    animation: bat-critical 0.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+#battery.critical:hover {
+    animation: none;
+}
+
+
+
+
+#custom-power {
+    background: alpha(@error, 0.12);
+    color: @error;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 0 12px;
+    margin: 5px 5px 5px 4px;
+    border-radius: 10px;
+    transition: 
+        all 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+        background 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#custom-power:hover {
+    background: @error;
+    color: @on_error;
+    padding: 0 16px;
+}
+
+
+
+#group-tray-expander {
+    background: transparent;
+    padding: 0;
+    margin: 0 2px;
+    border-radius: 10px;
+}
+
+#custom-tray-toggle {
+    background: transparent;
+    color: @on_surface_variant;
+    font-size: 12px;
+    padding: 0 8px;
+    margin: 5px 2px;
+    border-radius: 8px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#custom-tray-toggle:hover {
+    background: alpha(@surface_variant, 0.4);
+    color: @on_surface;
+    padding: 0 12px;
+}
+
+.tray-child {
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+
+#backlight {
+    background: transparent;
+    color: @tertiary;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 0 10px;
+    margin: 5px 2px;
+    border-radius: 10px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#backlight:hover {
+    background: alpha(@tertiary_container, 0.3);
+    padding: 0 14px;
+}
+
+
+
+#temperature {
+    background: transparent;
+    color: @on_surface;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 0 10px;
+    margin: 5px 2px;
+    border-radius: 10px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#temperature:hover {
+    background: alpha(@surface_variant, 0.4);
+    padding: 0 14px;
+}
+
+#temperature.warning {
+    color: @tertiary;
+}
+
+#temperature.critical {
+    color: @error;
+    animation: temp-pulse 0.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+
+
+
+#cpu {
+    background: transparent;
+    color: @secondary;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 0 10px;
+    margin: 5px 2px;
+    border-radius: 10px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#cpu:hover {
+    background: alpha(@secondary_container, 0.4);
+    padding: 0 14px;
+}
+
+
+
+#memory {
+    background: transparent;
+    color: @tertiary;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 0 10px;
+    margin: 5px 2px;
+    border-radius: 10px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#memory:hover {
+    background: alpha(@tertiary_container, 0.4);
+    padding: 0 14px;
+}
+
+
+
+#idle_inhibitor {
+    background: transparent;
+    color: @on_surface_variant;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0 10px;
+    margin: 5px 2px;
+    border-radius: 10px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#idle_inhibitor:hover {
+    background: alpha(@surface_variant, 0.4);
+    color: @on_surface;
+    padding: 0 14px;
+}
+
+#idle_inhibitor.activated {
+    color: @primary;
+    background: alpha(@primary_container, 0.3);
+}
+
+#idle_inhibitor.deactivated {
+    color: @on_surface_variant;
+}
+
+
+
+#language {
+    background: transparent;
+    color: @secondary;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 0 10px;
+    margin: 5px 2px;
+    border-radius: 10px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#language:hover {
+    background: alpha(@secondary_container, 0.4);
+    padding: 0 14px;
+}
+
+
+
+#window {
+    background: transparent;
+    color: @on_surface_variant;
+    font-family: 'Google Sans Display', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 0 12px;
+    margin: 5px 4px;
+    border-radius: 10px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#window:hover {
+    background: alpha(@surface_variant, 0.3);
+    color: @on_surface;
+    padding: 0 16px;
+}
+
+#window.empty {
+    background: transparent;
+    padding: 0 4px;
+}
+
+#window.floating {
+    font-style: italic;
+}
+
+
+
+#custom-cava {
+    background: transparent;
+    color: alpha(@primary, 0.7);
+    font-family: 'monospace';
+    font-size: 10px;
+    font-weight: 500;
+    padding: 0 8px;
+    margin: 5px 4px;
+    border-radius: 10px;
+    min-width: 70px;
+    letter-spacing: 1px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#custom-cava:hover {
+    background: alpha(@primary_container, 0.3);
+    color: @primary;
+    padding: 0 12px;
+}
+
+
+
+#custom-update {
+    background: transparent;
+    color: @secondary;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0 10px;
+    margin: 5px 2px;
+    border-radius: 10px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#custom-update:hover {
+    background: alpha(@secondary_container, 0.4);
+    padding: 0 14px;
+}
+
+#custom-update.pending {
+    color: @primary;
+    animation: update-glow 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+
+
+
+#custom-way {
+    background: transparent;
+    color: @on_surface;
+    font-family: 'Google Sans Display', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 0 10px;
+    margin: 5px 4px;
+    border-radius: 10px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#custom-way:hover {
+    background: alpha(@surface_variant, 0.4);
+    padding: 0 14px;
+}
+
+#custom-way.timer {
+    background: alpha(@primary_container, 0.3);
+    color: @primary;
+    animation: timer-tick 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+#custom-way.pomodoro-work {
+    background: alpha(@error_container, 0.25);
+    color: @error;
+}
+
+#custom-way.pomodoro-break {
+    background: alpha(@primary_container, 0.2);
+    color: @primary;
+}
+
+
+
+
+#custom-screenrecording-indicator {
+    background: transparent;
+    color: @on_surface;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 0 10px;
+    margin: 5px 2px;
+    border-radius: 10px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#custom-screenrecording-indicator:hover {
+    background: alpha(@surface_variant, 0.4);
+    padding: 0 14px;
+}
+
+#custom-screenrecording-indicator.recording {
+    background: alpha(@error_container, 0.3);
+    color: @error;
+    animation: rec-blink 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+
+
+
+window#waybar.fullscreen {
+    background: transparent;
+    margin: 0;
+}
+
+window#waybar.fullscreen .modules-left,
+window#waybar.fullscreen .modules-center,
+window#waybar.fullscreen .modules-right {
+    background: alpha(@surface_container, 0.9);
+    border-radius: 0;
+    border: none;
+    margin: 0;
+}
+
+

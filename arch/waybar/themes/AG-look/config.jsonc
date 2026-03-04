@@ -1,0 +1,288 @@
+{
+    "reload_style_on_change": true,
+    "layer": "top",
+    "position": "top",
+    "spacing": 0,
+    "height": 40,
+    "margin-top": 0,
+    "margin-left": 0,
+    "margin-right": 0,
+    "margin-bottom": 0,
+    "exclusive": true,
+    "passthrough": false,
+    "fixed-center": true,
+    "gtk-layer-shell": true,
+    "ipc": true,
+
+    "modules-left": [
+    ],
+
+    "modules-center": [
+        "custom/launcher",
+        "custom/separator-dot",
+        "hyprland/workspaces",
+        "custom/separator-left",
+        "custom/media-player",
+        "custom/separator-left",
+        "custom/cava",
+        "tray",
+        "custom/separator-dot",
+        "bluetooth",
+        "network",
+        "pulseaudio",
+        "backlight",
+        "custom/separator-dot",
+        "battery",
+        "clock",
+        "custom/separator-dot",
+        "custom/power"
+    ],
+
+    "modules-right": [
+    ],
+
+    "hyprland/workspaces": {
+        "on-click": "activate",
+        "on-scroll-up": "hyprctl dispatch workspace e-1",
+        "on-scroll-down": "hyprctl dispatch workspace e+1",
+        "format": "{icon}",
+        "format-icons": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "10": "10",
+            "urgent": "!",
+            "active": "●",
+            "default": "○",
+            "empty": "·"
+        },
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": []
+        },
+        "all-outputs": true,
+        "show-special": false,
+        "sort-by-number": true
+    },
+
+    "custom/launcher": {
+        "format": "󰣇",
+        "on-click": "rofi -show drun ",
+        "on-click-right": "kitty",
+        "on-click-middle": "rofi -show run",
+        "tooltip": true,
+        "tooltip-format": "  Applications\n  Right-click: Terminal\n  Middle-click: Run"
+    },
+
+    "custom/separator-dot": {
+        "format": "·",
+        "tooltip": false
+    },
+
+    "custom/separator-left": {
+        "format": "|",
+        "tooltip": false
+    },
+
+    "custom/media-player": {
+        "exec": "playerctl metadata --format '{\"text\": \"{{artist}} — {{title}}\", \"tooltip\": \"{{playerName}}\\n{{artist}} — {{album}}\\n{{title}}\\n{{duration(position)}}/{{duration(mpris:length)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' --follow 2>/dev/null || echo '{\"text\": \"\", \"tooltip\": \"No media playing\", \"class\": \"stopped\"}'",
+        "return-type": "json",
+        "format": "{}",
+        "max-length": 45,
+        "on-click": "playerctl play-pause",
+        "on-click-right": "playerctl next",
+        "on-click-middle": "playerctl previous",
+        "on-scroll-up": "playerctl volume 0.05+",
+        "on-scroll-down": "playerctl volume 0.05-",
+        "tooltip": true,
+        "escape": true
+    },
+
+    "custom/cava": {
+        "exec": "~/.config/waybar/scripts/cava.sh",
+        "return-type": "json",
+        "format": "{}",
+        "tooltip": false,
+        "on-click": "pavucontrol"
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 6,
+        "show-passive-items": true,
+        "reverse-direction": false
+    },
+
+    "network": {
+        "format": "{icon}",
+        "format-icons": [
+            "󰤯",
+            "󰤟",
+            "󰤢",
+            "󰤥",
+            "󰤨"
+        ],
+        "format-wifi": "{icon}",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰤭",
+        "format-linked": "󰈁",
+        "format-disabled": "󰤮",
+        "interval": 3,
+        "on-click": "nm-connection-editor",
+        "on-click-right": "kitty --class floating-kitty -e nmtui",
+        "on-click-middle": "nmcli networking connectivity",
+        "tooltip": true,
+        "tooltip-format-wifi": "  {essid}\n󰢮  Signal: {signalStrength}%\n󰩟  IP: {ipaddr}\n󰁼  Freq: {frequency}MHz\n  Down: {bandwidthDownBytes}\n  Up: {bandwidthUpBytes}",
+        "tooltip-format-ethernet": "󰈀  Wired\n󰩟  IP: {ipaddr}\n  Down: {bandwidthDownBytes}\n  Up: {bandwidthUpBytes}",
+        "tooltip-format-disconnected": "󰤭  No Connection",
+        "tooltip-format-disabled": "󰤮  Networking Disabled"
+    },
+
+    "bluetooth": {
+        "format": "󰂯",
+        "format-disabled": "󰂲",
+        "format-off": "󰂲",
+        "format-on": "󰂯",
+        "format-connected": "󰂱 {num_connections}",
+        "format-connected-battery": "󰂱 {device_battery_percentage}%",
+        "format-no-controller": "",
+        "on-click": "overskride",
+        "on-click-right": "bluetoothctl power toggle",
+        "tooltip": true,
+        "tooltip-format": "󰂯  {status}\n󰂰  Controller: {controller_alias}",
+        "tooltip-format-connected": "󰂱  Connected:\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "  {device_alias}",
+        "tooltip-format-enumerate-connected-battery": "  {device_alias}  󰁹 {device_battery_percentage}%",
+        "tooltip-format-off": "󰂲  Bluetooth Off",
+        "tooltip-format-disabled": "󰂲  Bluetooth Disabled"
+    },
+
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-bluetooth": "󰂰",
+        "format-bluetooth-muted": "󰂲",
+        "format-muted": "󰝟",
+        "format-source": "󰍬",
+        "format-source-muted": "󰍭",
+        "format-icons": {
+            "headphone": "󰋋",
+            "hands-free": "󰋎",
+            "headset": "󰋎",
+            "phone": "󰏲",
+            "portable": "󰏲",
+            "car": "󰄋",
+            "default": [
+                "󰕿",
+                "󰖀",
+                "󰕾"
+            ]
+        },
+        "scroll-step": 2,
+        "on-click": "pavucontrol",
+        "on-click-right": "pamixer -t",
+        "on-click-middle": "pamixer --default-source -t",
+        "on-scroll-up": "pamixer -i 2",
+        "on-scroll-down": "pamixer -d 2",
+        "tooltip": true,
+        "tooltip-format": "󰕾  Volume: {volume}%  {icon}\n󰍬  Mic: {source_volume}%\n󰗅  {desc}",
+        "ignored-sinks": [
+            "Easy Effects Sink"
+        ],
+        "max-volume": 150
+    },
+
+    "backlight": {
+        "format": "{icon}",
+        "format-icons": [
+            "󰃞",
+            "󰃟",
+            "󰃠"
+        ],
+        "on-scroll-up": "brightnessctl set 2%+",
+        "on-scroll-down": "brightnessctl set 2%-",
+        "on-click": "brightnessctl set 100%",
+        "on-click-right": "brightnessctl set 30%",
+        "tooltip": true,
+        "tooltip-format": "󰃠  Brightness: {percent}%"
+    },
+
+    "battery": {
+        "states": {
+            "full": 100,
+            "good": 80,
+            "half": 50,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}",
+        "format-charging": "󰂄",
+        "format-plugged": "󰚥",
+        "format-full": "󰁹",
+        "format-not-charging": "󰚥",
+        "format-icons": [
+            "󰂎",
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰁹"
+        ],
+        "tooltip": true,
+        "tooltip-format": "󰁹  Battery: {capacity}%\n󰥔  Remaining: {time}\n⚡  Power: {power:.1f}W\n  Health: {health}%",
+        "tooltip-format-charging": "󰂄  Charging: {capacity}%\n󰥔  Until full: {time}\n⚡  Power: {power:.1f}W",
+        "tooltip-format-plugged": "󰚥  Plugged: {capacity}%\n⚡  Power: {power:.1f}W",
+        "tooltip-format-full": "󰁹  Fully Charged\n  Health: {health}%",
+        "interval": 10
+    },
+
+    "clock": {
+            "format": "{:%I:%M %p}",
+            "format-alt": "{:%a %d %b}",
+            "tooltip": true,
+            "tooltip-format": "<big>{:%B %Y}</big>\n<tt>{calendar}</tt>",
+	    "calendar": {
+            "mode": "year",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#cdd6f4'><b>{}</b></span>",
+                "days": "<span color='#bac2de'>{}</span>",
+                "weeks": "<span color='#74c7ec'><b>W{}</b></span>",
+                "weekdays": "<span color='#f9e2af'><b>{}</b></span>",
+                "today": "<span color='#a6e3a1'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-click": "mode",
+            "on-click-right": "shift_up",
+            "on-click-middle": "shift_reset",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        },
+        "on-click-right": "kitty --class floating-kitty -e calcurse"
+    },
+
+    "custom/power": {
+        "format": "󰐥",
+        "on-click": "wlogout -p layer-shell",
+        "on-click-right": "hyprctl dispatch exit",
+        "on-click-middle": "systemctl suspend",
+        "tooltip": true,
+        "tooltip-format": "  Power Menu\n  Right-click: Exit\n  Middle-click: Suspend"
+    }
+}
