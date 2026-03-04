@@ -1,0 +1,423 @@
+@import "../../.cache/colors/colors.css";
+
+
+* {
+    all: unset;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'monospace';
+    font-weight: 400;
+    font-size: 11px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+}
+
+window#waybar {
+    background: alpha(@surface_container, 0.78);
+    color: @on_surface;
+}
+
+window#waybar.empty {
+    background: alpha(@surface_container, 0.78);
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    background: transparent;
+}
+
+/* ── tooltip ── */
+
+tooltip {
+    background: alpha(@surface_container_high, 0.88);
+    border: 1px solid alpha(@outline_variant, 0.1);
+    border-radius: 4px;
+}
+
+tooltip * {
+    background: transparent;
+}
+
+tooltip label {
+    color: @on_surface;
+    font-size: 10px;
+    padding: 4px 8px;
+}
+
+/* ── workspaces ── */
+
+#workspaces {
+    margin: 0 2px;
+}
+
+#workspaces button {
+    color: alpha(@on_surface_variant, 0.5);
+    font-size: 10px;
+    padding: 0 6px;
+    min-width: 6px;
+    min-height: 0;
+    border-bottom: 2px solid transparent;
+}
+
+#workspaces button:hover {
+    color: @on_surface;
+    background: alpha(@on_surface, 0.04);
+}
+
+#workspaces button.active {
+    color: @primary;
+    border-bottom-color: @primary;
+}
+
+#workspaces button.urgent {
+    color: @error;
+    border-bottom-color: @error;
+}
+
+#workspaces button.visible {
+    color: @on_surface;
+    border-bottom-color: alpha(@primary, 0.3);
+}
+
+#workspaces button.empty {
+    color: alpha(@outline, 0.2);
+}
+
+/* ── launcher ── */
+
+#custom-launcher {
+    color: @primary;
+    font-size: 13px;
+    padding: 0 8px 0 6px;
+}
+
+#custom-launcher:hover {
+    color: @on_primary_container;
+    background: alpha(@primary_container, 0.4);
+}
+
+/* ── separator ── */
+
+#custom-separator-dot {
+    color: alpha(@outline_variant, 0.2);
+    font-size: 5px;
+    padding: 0 3px;
+}
+
+#custom-separator-left {
+    color: alpha(@outline_variant, 0.1);
+    font-size: 9px;
+    padding: 0 1px;
+    margin: 5px 0;
+}
+
+/* ── media ── */
+
+#custom-media-player {
+    color: alpha(@on_surface_variant, 0.6);
+    font-size: 10px;
+    padding: 0 6px;
+    min-width: 160px;
+}
+
+#custom-media-player:hover {
+    color: @on_surface;
+}
+
+#custom-media-player.Paused {
+    color: alpha(@outline, 0.35);
+}
+
+#custom-media-player.stopped {
+    color: alpha(@outline, 0.2);
+    padding: 0 2px;
+}
+
+/* ── tray ── */
+
+#tray {
+    padding: 0 3px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray menu {
+    background: alpha(@surface_container_high, 0.9);
+    border: 1px solid alpha(@outline_variant, 0.08);
+    border-radius: 4px;
+    padding: 2px;
+}
+
+#tray menu menuitem {
+    color: @on_surface;
+    font-size: 10px;
+    padding: 4px 10px;
+    border-radius: 2px;
+}
+
+#tray menu menuitem:hover {
+    background: alpha(@on_surface, 0.05);
+}
+
+#tray menu menuitem:disabled {
+    color: alpha(@outline, 0.25);
+}
+
+#tray menu separator {
+    background: alpha(@outline_variant, 0.1);
+    margin: 2px 6px;
+    min-height: 1px;
+}
+
+/* ── clock ── */
+
+#clock {
+    color: @on_surface;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 0 6px;
+    letter-spacing: 0.2px;
+}
+
+#clock:hover {
+    color: @primary;
+}
+
+/* ── network ── */
+
+#network {
+    color: alpha(@on_surface, 0.7);
+    font-size: 12px;
+    padding: 0 5px;
+}
+
+#network:hover {
+    color: @on_surface;
+}
+
+#network.wifi,
+#network.ethernet {
+    color: alpha(@primary, 0.8);
+}
+
+#network.disconnected {
+    color: alpha(@outline, 0.3);
+}
+
+/* ── bluetooth ── */
+
+#bluetooth {
+    color: alpha(@on_surface, 0.7);
+    font-size: 11px;
+    padding: 0 5px;
+}
+
+#bluetooth:hover {
+    color: @on_surface;
+}
+
+#bluetooth.connected {
+    color: alpha(@tertiary, 0.8);
+}
+
+#bluetooth.disabled,
+#bluetooth.off {
+    color: alpha(@outline, 0.25);
+}
+
+/* ── volume ── */
+
+#pulseaudio {
+    color: alpha(@on_surface, 0.7);
+    font-size: 12px;
+    padding: 0 5px;
+}
+
+#pulseaudio:hover {
+    color: @on_surface;
+}
+
+#pulseaudio.muted {
+    color: alpha(@outline, 0.3);
+}
+
+#pulseaudio.bluetooth {
+    color: alpha(@tertiary, 0.7);
+}
+
+/* ── backlight ── */
+
+#backlight {
+    color: alpha(@on_surface, 0.7);
+    font-size: 12px;
+    padding: 0 5px;
+}
+
+#backlight:hover {
+    color: @on_surface;
+}
+
+/* ── battery ── */
+
+#battery {
+    color: alpha(@on_surface, 0.7);
+    font-size: 12px;
+    padding: 0 5px;
+}
+
+#battery:hover {
+    color: @on_surface;
+}
+
+#battery.charging,
+#battery.plugged,
+#battery.full {
+    color: alpha(@primary, 0.8);
+}
+
+#battery.warning {
+    color: @tertiary;
+}
+
+#battery.critical {
+    color: @error;
+}
+
+/* ── power ── */
+
+#custom-power {
+    color: alpha(@on_surface_variant, 0.5);
+    font-size: 12px;
+    padding: 0 6px;
+}
+
+#custom-power:hover {
+    color: @error;
+    background: alpha(@error, 0.06);
+}
+
+/* ── window ── */
+
+#window {
+    color: alpha(@on_surface_variant, 0.35);
+    font-size: 10px;
+    padding: 0 6px;
+}
+
+#window:hover {
+    color: alpha(@on_surface_variant, 0.6);
+}
+
+#window.empty {
+    padding: 0;
+    min-width: 0;
+}
+
+/* ── temperature ── */
+
+#temperature {
+    color: alpha(@on_surface, 0.7);
+    font-size: 12px;
+    padding: 0 5px;
+}
+
+#temperature.warning {
+    color: @tertiary;
+}
+
+#temperature.critical {
+    color: @error;
+}
+
+/* ── cpu / memory ── */
+
+#cpu,
+#memory {
+    color: alpha(@on_surface_variant, 0.45);
+    font-size: 10px;
+    padding: 0 5px;
+}
+
+#cpu:hover,
+#memory:hover {
+    color: alpha(@on_surface, 0.7);
+}
+
+/* ── idle inhibitor ── */
+
+#idle_inhibitor {
+    color: alpha(@on_surface_variant, 0.45);
+    font-size: 11px;
+    padding: 0 5px;
+}
+
+#idle_inhibitor.activated {
+    color: alpha(@primary, 0.7);
+}
+
+#idle_inhibitor.deactivated {
+    color: alpha(@outline, 0.25);
+}
+
+/* ── language ── */
+
+#language {
+    color: alpha(@on_surface_variant, 0.45);
+    font-size: 9px;
+    font-weight: 700;
+    padding: 0 5px;
+    letter-spacing: 0.3px;
+}
+
+#language:hover {
+    color: alpha(@on_surface, 0.7);
+}
+
+/* ── updates ── */
+
+#custom-update {
+    color: alpha(@on_surface, 0.7);
+    font-size: 11px;
+    padding: 0 5px;
+}
+
+#custom-update.pending {
+    color: alpha(@primary, 0.7);
+}
+
+/* ── recording ── */
+
+#custom-screenrecording-indicator {
+    color: alpha(@on_surface, 0.7);
+    font-size: 10px;
+    padding: 0 5px;
+}
+
+#custom-screenrecording-indicator.recording {
+    color: @error;
+}
+
+/* ── tray toggle ── */
+
+#group-tray-expander {
+    padding: 0;
+}
+
+#custom-tray-toggle {
+    color: alpha(@on_surface_variant, 0.35);
+    font-size: 8px;
+    padding: 0 3px;
+}
+
+#custom-tray-toggle:hover {
+    color: alpha(@on_surface, 0.6);
+}
+
+/* ── fullscreen ── */
+
+window#waybar.fullscreen {
+    background: alpha(@surface_container, 0.55);
+}

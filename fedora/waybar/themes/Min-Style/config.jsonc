@@ -1,0 +1,161 @@
+{
+    "reload_style_on_change": true,
+    "layer": "top",
+    "position": "top",
+    "spacing": 0,
+    "height": 24,
+    "margin-top": 0,
+    "margin-left": 0,
+    "margin-right": 0,
+    "margin-bottom": 0,
+    "exclusive": true,
+    "passthrough": false,
+    "fixed-center": true,
+    "gtk-layer-shell": true,
+
+    "modules-left": [
+        "custom/launcher",
+        "custom/separator-dot",
+        "hyprland/workspaces"
+    ],
+
+    "modules-center": [
+        "custom/media-player"
+    ],
+
+    "modules-right": [
+        "tray",
+        "custom/separator-dot",
+        "network",
+        "custom/separator-dot",
+        "bluetooth",
+        "pulseaudio",
+        "custom/separator-dot",
+        "battery",
+        "clock",
+        "custom/separator-dot",
+        "custom/power"
+    ],
+
+    "hyprland/workspaces": {
+        "on-click": "activate",
+        "on-scroll-up": "hyprctl dispatch workspace e-1",
+        "on-scroll-down": "hyprctl dispatch workspace e+1",
+        "format": "{icon}",
+        "format-icons": {
+            "1": "1", "2": "2", "3": "3", "4": "4", "5": "5",
+            "6": "6", "7": "7", "8": "8", "9": "9", "10": "0",
+            "active": "●", "default": "○", "empty": "·", "urgent": "!"
+        },
+        "persistent-workspaces": {
+            "1": [], "2": [], "3": [], "4": [], "5": []
+        },
+        "all-outputs": true,
+        "sort-by-number": true
+    },
+
+    "custom/launcher": {
+        "format": "",
+        "on-click": "rofi -show drun",
+        "on-click-right": "kitty",
+        "tooltip-format": "apps"
+    },
+
+    "custom/separator-dot": {
+        "format": "·",
+        "tooltip": false
+    },
+
+    "custom/media-player": {
+        "exec": "playerctl metadata --format '{\"text\": \"{{artist}} — {{title}}\", \"tooltip\": \"{{playerName}}\\n{{artist}} — {{title}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' --follow 2>/dev/null || echo '{\"text\": \"\", \"tooltip\": \"nothing playing\", \"class\": \"stopped\"}'",
+        "return-type": "json",
+        "format": "{}",
+        "max-length": 35,
+        "on-click": "playerctl play-pause",
+        "on-click-right": "playerctl next",
+        "on-click-middle": "playerctl previous",
+        "on-scroll-up": "playerctl volume 0.05+",
+        "on-scroll-down": "playerctl volume 0.05-",
+        "tooltip": true,
+        "escape": true
+    },
+
+    "tray": {
+        "icon-size": 12,
+        "spacing": 4,
+        "show-passive-items": true
+    },
+
+    "network": {
+        "format": "{icon}",
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+        "format-wifi": "{icon}",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰤭",
+        "interval": 5,
+        "on-click": "kitty --class floating-kitty -e nmtui",
+        "tooltip-format-wifi": "{essid} {signalStrength}%",
+        "tooltip-format-ethernet": "{ipaddr}",
+        "tooltip-format-disconnected": "offline"
+    },
+
+    "bluetooth": {
+        "format": "󰂯",
+        "format-disabled": "󰂲",
+        "format-off": "󰂲",
+        "format-connected": "󰂱",
+        "format-no-controller": "",
+        "on-click": "overskride",
+        "tooltip-format": "{status}"
+    },
+
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-muted": "󰝟",
+        "format-icons": {
+            "headphone": "󰋋",
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "scroll-step": 2,
+        "on-click": "pavucontrol",
+        "on-click-right": "pamixer -t",
+        "on-scroll-up": "pamixer -i 2",
+        "on-scroll-down": "pamixer -d 2",
+        "tooltip-format": "{volume}%",
+        "ignored-sinks": ["Easy Effects Sink"]
+    },
+
+    "backlight": {
+        "format": "{icon}",
+        "format-icons": ["󰃞", "󰃟", "󰃠"],
+        "on-scroll-up": "brightnessctl set 2%+",
+        "on-scroll-down": "brightnessctl set 2%-",
+        "tooltip-format": "{percent}%"
+    },
+
+    "battery": {
+        "states": { "warning": 30, "critical": 15 },
+        "format": "{icon}",
+        "format-charging": "󰂄",
+        "format-plugged": "󰚥",
+        "format-full": "󰁹",
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "tooltip-format": "{capacity}% {time}",
+        "interval": 15
+    },
+
+      
+    "clock": {
+           "format": "{:%I:%M %p}",
+           "format-alt": "{:%a %d %b}",
+           "tooltip": true,
+           "tooltip-format": "<big>{:%B %Y}</big>\n<tt>{calendar}</tt>",
+    "on-click-right": "kitty --class floating-kitty -e calcurse"
+    },
+
+    "custom/power": {
+        "format": "⏻",
+        "on-click": "wlogout -p layer-shell",
+        "tooltip-format": "power"
+    }
+}
