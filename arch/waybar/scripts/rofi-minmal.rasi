@@ -1,0 +1,61 @@
+@import "~/.cache/colors/rofi.rasi"
+
+* {
+    bg: @surface;
+    fg: @on-surface;
+    sel: @primary;
+    fgs: @on-primary;
+    bdr: @outline-variant;
+}
+
+configuration {
+    modi: "drun";
+    show-icons: false;
+    font: "Monaco 10";
+    hover-select: true;
+    matching: "fuzzy";
+}
+
+* { background-color: transparent; margin: 0; padding: 0; border-radius: 0; }
+
+window {
+    width: 320px;
+    background-color: @bg;
+    border: 1px solid;
+    border-color: @bdr;
+}
+
+mainbox { children: [ "inputbar", "listview" ]; }
+
+inputbar {
+    padding: 6px 8px;
+    background-color: @bg;
+    border: 0 0 1px 0 solid;
+    border-color: @bdr;
+    children: [ "entry" ];
+}
+
+entry {
+    text-color: @fg;
+    placeholder: "run";
+    placeholder-color: @bdr;
+}
+
+listview {
+    lines: 6;
+    padding: 2px 0;
+}
+
+element {
+    padding: 4px 8px;
+    text-color: @fg;
+}
+
+element selected {
+    background-color: @sel;
+    text-color: @fgs;
+}
+
+element-text {
+    text-color: inherit;
+}

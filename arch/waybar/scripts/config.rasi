@@ -1,0 +1,255 @@
+@import "~/.cache/colors/rofi.rasi"
+
+/* ─────────────────────────────────────────── */
+/* Derived Colors from MD3 tokens              */
+/* ─────────────────────────────────────────── */
+* {
+    background:     @surface;
+    foreground:     @on-surface;
+    bg-alt:         @surface-container;
+    bg-selected:    @primary;
+    fg-dim:         @on-surface-variant;
+    border:         @outline;
+    accent:         @primary;
+}
+
+/* ─────────────────────────────────────────── */
+/* Configuration                               */
+/* ─────────────────────────────────────────── */
+configuration {
+    modi:                       "drun,run,window";
+    show-icons:                 true;
+    display-drun:               "Apps";
+    display-run:                "Run";
+    display-filebrowser:        "Files";
+    display-window:             "Windows";
+    drun-display-format:        "{name}";
+    window-format:              "{c} · {t}";
+    font:                       "Google Sans Display 12";
+    icon-theme:                 "Papirus-Dark";
+    hover-select:               true;
+    me-select-entry:            "";
+    me-accept-entry:            "MousePrimary";
+    cursor:                     "default";
+    steal-focus:                true;
+    case-sensitive:             false;
+    sort:                       true;
+    sorting-method:             "fzf";
+    matching:                   "fuzzy";
+    click-to-exit:              true;
+    drun-match-fields:          "name,generic,exec,categories,keywords";
+}
+
+/* ─────────────────────────────────────────── */
+/* Global Reset                                */
+/* ─────────────────────────────────────────── */
+* {
+    background-color:           transparent;
+    margin:                     0;
+    padding:                    0;
+}
+
+/* ─────────────────────────────────────────── */
+/* Window                                      */
+/* ─────────────────────────────────────────── */
+window {
+    transparency:               "real";
+    location:                   center;
+    anchor:                     center;
+    fullscreen:                 false;
+    width:                      820px;
+    x-offset:                   0;
+    y-offset:                   0;
+    enabled:                    true;
+    border-radius: 0;
+    border:                     2px solid;
+    border-color:               @border;
+    cursor:                     "default";
+    background-color:           @background;
+}
+
+/* ─────────────────────────────────────────── */
+/* Main Box                                    */
+/* ─────────────────────────────────────────── */
+mainbox {
+    enabled:                    true;
+    spacing:                    24px;
+    padding:                    28px 32px;
+    orientation:                vertical;
+    children:                   [ "inputbar", "listview", "message" ];
+    background-color:           transparent;
+}
+
+/* ─────────────────────────────────────────── */
+/* Input Bar                                   */
+/* ─────────────────────────────────────────── */
+inputbar {
+    enabled:                    true;
+    spacing:                    12px;
+    padding:                    14px 18px;
+    border:                     1px solid;
+    border-color:               @border;
+    border-radius: 0;
+    background-color:           @bg-alt;
+    text-color:                 @foreground;
+    children:                   [ "textbox-prompt", "entry" ];
+}
+
+textbox-prompt {
+    enabled:                    true;
+    expand:                     false;
+    str:                        "󰍉";
+    font:                       "Symbols Nerd Font 16";
+    background-color:           transparent;
+    text-color:                 @fg-dim;
+    vertical-align:             0.5;
+    horizontal-align:           0.5;
+}
+
+prompt {
+    enabled:                    true;
+    background-color:           transparent;
+    text-color:                 @foreground;
+}
+
+entry {
+    enabled:                    true;
+    background-color:           transparent;
+    text-color:                 @foreground;
+    cursor:                     text;
+    placeholder:                "Type to search…";
+    placeholder-color:          @fg-dim;
+    vertical-align:             0.5;
+}
+
+/* ─────────────────────────────────────────── */
+/* List View                                   */
+/* ─────────────────────────────────────────── */
+listview {
+    enabled:                    true;
+    columns:                    4;
+    lines:                      3;
+    cycle:                      true;
+    dynamic:                    true;
+    scrollbar:                  false;
+    layout:                     vertical;
+    reverse:                    false;
+    fixed-height:               true;
+    fixed-columns:              false;
+    spacing:                    20px;
+    background-color:           transparent;
+    text-color:                 @foreground;
+    cursor:                     "default";
+}
+
+/* ─────────────────────────────────────────── */
+/* Elements                                    */
+/* ─────────────────────────────────────────── */
+element {
+    enabled:                    true;
+    orientation:                vertical;
+    spacing:                    12px;
+    padding:                    24px 14px 20px 14px;
+    border-radius: 0;
+    cursor:                     pointer;
+    background-color:           transparent;
+    text-color:                 @foreground;
+    border:                     2px solid;
+    border-color:               transparent;
+}
+
+element normal.normal {
+    background-color:           transparent;
+    text-color:                 @foreground;
+}
+
+element normal.urgent {
+    background-color:           transparent;
+    text-color:                 @foreground;
+}
+
+element normal.active {
+    background-color:           @bg-alt;
+    text-color:                 @foreground;
+    border-color:               @border;
+}
+
+element selected.normal {
+    background-color:           @bg-selected;
+    text-color:                 @on-primary;
+    border-color:               @accent;
+}
+
+element selected.urgent {
+    background-color:           @bg-selected;
+    text-color:                 @on-primary;
+    border-color:               @accent;
+}
+
+element selected.active {
+    background-color:           @bg-selected;
+    text-color:                 @on-primary;
+    border-color:               @accent;
+}
+
+element alternate.normal {
+    background-color:           transparent;
+    text-color:                 @foreground;
+}
+
+element alternate.urgent {
+    background-color:           transparent;
+    text-color:                 @foreground;
+}
+
+element alternate.active {
+    background-color:           @bg-alt;
+    text-color:                 @foreground;
+    border-color:               @border;
+}
+
+element-icon {
+    background-color:           transparent;
+    text-color:                 inherit;
+    size:                       56px;
+    cursor:                     inherit;
+    horizontal-align:           0.5;
+}
+
+element-text {
+    background-color:           transparent;
+    text-color:                 inherit;
+    highlight:                  inherit;
+    cursor:                     inherit;
+    vertical-align:             0.5;
+    horizontal-align:           0.5;
+    font:                       "Google Sans Display 10";
+}
+
+/* ─────────────────────────────────────────── */
+/* Message / Error                             */
+/* ─────────────────────────────────────────── */
+message {
+    enabled:                    true;
+    padding:                    0;
+    background-color:           transparent;
+}
+
+textbox {
+    padding:                    14px 18px;
+    border-radius: 0;
+    background-color:           @bg-alt;
+    text-color:                 @fg-dim;
+    vertical-align:             0.5;
+    horizontal-align:           0.5;
+}
+
+error-message {
+    padding:                    18px;
+    border-radius: 0;
+    background-color:           @background;
+    text-color:                 @foreground;
+    border:                     2px solid;
+    border-color:               @border;
+}
+
