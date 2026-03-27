@@ -1,0 +1,211 @@
+@import '/home/nex/.cache/colors/colors.css';
+
+* {
+    font-family: "Google Sans", "Roboto Flex", "Outfit", sans-serif;
+    font-weight: 500;
+    transition: all 150ms cubic-bezier(0.3, 0, 0.8, 0.15);
+    background-clip: padding-box;
+}
+.control-center {
+    background: @surface_container_high;
+    border-radius: 32px;
+    border: 1px solid @outline_variant;
+    color: @on_surface;
+    padding: 16px;
+    margin: 16px;
+    box-shadow: none;
+}
+
+.control-center-list {
+    background: transparent;
+}
+
+.control-center-list-placeholder {
+    color: alpha(@on_surface, 0.5);
+    font-size: 24px;
+    font-weight: 300;
+}
+.floating-notifications {
+    background: transparent;
+}
+
+.floating-notifications .notification {
+    box-shadow: none;
+    margin: 8px 16px;
+}
+
+.notification-row {
+    outline: none;
+    margin: 8px 0;
+}
+
+.notification {
+    background-color: @surface_container_low;
+    border: 1px solid @outline_variant;
+    border-radius: 28px;
+    padding: 16px;
+    margin: 4px 12px;
+}
+
+.notification:hover {
+    background-color: @surface_bright; 
+    border: 1px solid @outline;
+}
+
+.notification-content {
+    background: transparent;
+    padding: 4px;
+}
+
+.notification-default-action {
+    color: @on_surface;
+}
+
+.summary {
+    color: @on_surface;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.time {
+    color: @on_surface_variant;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.body {
+    color: @on_surface_variant;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+.app-icon {
+    border-radius: 9999px; 
+    margin-right: 12px;
+}
+
+.image {
+    border-radius: 24px;
+    margin: 8px 0;
+}
+
+/* ==========================================================================
+   5. NOTIFICATION ACTIONS (BUTTONS)
+   ========================================================================== */
+.notification-action {
+    background: @surface_variant;
+    color: @on_surface_variant;
+    border: 1px solid transparent;
+    border-radius: 9999px;
+    padding: 8px 24px;
+    margin-top: 12px;
+    margin-right: 8px;
+    font-weight: 600;
+}
+
+.notification-action:hover {
+    background: @primary_fixed_dim;
+    color: @on_primary_fixed;
+    border: 1px solid @primary;
+}
+
+.notification-action:active {
+    background: @primary_container;
+    color: @on_primary_container;
+}
+
+.inline-reply-entry {
+    background: @surface_container_lowest;
+    color: @on_surface;
+    border: 1px solid @outline_variant;
+    border-radius: 9999px;
+    padding: 8px 16px;
+}
+
+.inline-reply-entry:focus {
+    border-color: @primary;
+    background: @surface_container;
+}
+
+/* ==========================================================================
+   7. WIDGET: BUTTONS GRID (QUICK SETTINGS)
+   ========================================================================== */
+.widget-buttons-grid > flowbox > flowboxchild > button {
+    background: @surface_container_highest;
+    border: 1px solid @outline_variant;
+    border-radius: 28px;
+    color: @on_surface;
+    min-height: 64px;
+    min-width: 64px;
+    margin: 4px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+    background: @surface_bright;
+    border-color: @outline;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:checked {
+    background: @primary_container;
+    color: @on_primary_container;
+    border-color: @primary;
+}
+
+/* ==========================================================================
+   8. WIDGET: SLIDERS
+   ========================================================================== */
+scale trough {
+    background: @surface_variant;
+    border-radius: 9999px;
+    min-height: 10px;
+}
+
+scale highlight {
+    background: @primary;
+    border-radius: 9999px;
+}
+
+scale slider {
+    background: @on_primary;
+    border-radius: 9999px;
+    min-width: 20px;
+    min-height: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+scale slider:hover {
+    background: @primary_fixed;
+    box-shadow: 0 0 0 8px alpha(@primary, 0.15);
+}
+
+/* ==========================================================================
+   9. WIDGET: MPRIS (MEDIA PLAYER)
+   ========================================================================== */
+.widget-mpris {
+    background: @surface_container_low;
+    border: 1px solid @outline_variant;
+    border-radius: 28px;
+    padding: 16px;
+    margin: 16px;
+}
+
+.widget-mpris-title {
+    color: @on_surface;
+}
+
+.widget-mpris-subtitle {
+    color: @on_surface_variant;
+}
+
+.widget-mpris-player > box > button {
+    background: @surface_variant;
+    color: @on_surface_variant;
+    border-radius: 9999px;
+}
+
+.widget-mpris-player > box > button:hover {
+    background: @secondary_container;
+    color: @on_secondary_container;
+}
