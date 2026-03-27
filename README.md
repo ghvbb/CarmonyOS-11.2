@@ -1,4 +1,4 @@
-# CarmonyOS 20.0 !
+# CarmonyOS 22.5 !
 
 
 **Elevating Hyprland UI to the Next Level**
@@ -69,8 +69,8 @@ and complete the  job appliction
 
 
 ## Arch Version +  EndeavorOS:
-<img width="1366" height="768" alt="satty-20260304-034655" src="https://github.com/user-attachments/assets/cfbeecf8-3e1b-4730-b06e-6b39f111fbed" />
-<img width="1366" height="768" alt="satty-20260304-031551" src="https://github.com/user-attachments/assets/9d4f3ce7-e6d2-4f0f-9de1-fee29e09ec5e" />
+<img width="1366" height="768" alt="satty-20260327-212531" src="https://github.com/user-attachments/assets/a83a5ed9-3ede-4925-a4bb-fe5e0b8a1808" />
+<img width="1366" height="768" alt="satty-20260327-213114" src="https://github.com/user-attachments/assets/e65347c2-10a8-4b55-a3d3-0a1cac09d511" />
 
 ## Fedora Version:
 <img width="1366" height="768" alt="satty-20260304-035003" src="https://github.com/user-attachments/assets/3015eacb-4d5f-4c3c-97f0-6e851e207cc7" />
