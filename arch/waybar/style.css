@@ -1,27 +1,9 @@
 @import "../../.cache/colors/colors.css";
 
-/* ══════════════════════════════════════════════════════════════════════════════
-   
-   ██╗    ██╗ █████╗ ██╗   ██╗██████╗  █████╗ ██████╗ 
-   ██║    ██║██╔══██╗╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
-   ██║ █╗ ██║███████║ ╚████╔╝ ██████╔╝███████║██████╔╝
-   ██║███╗██║██╔══██║  ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
-   ╚███╔███╔╝██║  ██║   ██║   ██████╔╝██║  ██║██║  ██║
-    ╚══╝╚══╝ ╚═╝  ╚═╝   ╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
-   
-   Android 16 · Material You · Google Motion Design
-   Floating Pill Bar · Dynamic Color · Expressive Surfaces
-   ══════════════════════════════════════════════════════════════════════════════ */
-
-
-/* ══════════════════════════════════════════════════════════════════════════════
-   SECTION 01: UNIVERSAL RESET & TYPOGRAPHY
-   Google Sans Display · Material type scale · Clean foundation
-   ══════════════════════════════════════════════════════════════════════════════ */
 
 * {
     all: unset;
-    font-family: 'Google Sans Display', 'Google Sans', 'Product Sans', 'Roboto', 'Inter', sans-serif;
+    font-family: "Google Sans Display", "Google Sans", "Product Sans", "Outfit", "Roboto Flex", "Inter", sans-serif;
     font-weight: 500;
     font-size: 13px;
     min-height: 0;
@@ -36,10 +18,6 @@
 }
 
 
-/* ══════════════════════════════════════════════════════════════════════════════
-   SECTION 02: MAIN WINDOW — TRANSPARENT CANVAS
-   Floating bar sits on transparent layer · Pill containers float
-   ══════════════════════════════════════════════════════════════════════════════ */
 
 window#waybar {
     background: transparent;
@@ -47,8 +25,8 @@ window#waybar {
 }
 
 window#waybar.hidden {
-    margin-top: -52px;
-    transition: margin 0.5s cubic-bezier(0.2, 0, 0, 1);
+    margin-top: -60px;
+    transition: margin 0.6s cubic-bezier(0.2, 0, 0, 1);
 }
 
 window#waybar.empty {
@@ -56,44 +34,20 @@ window#waybar.empty {
 }
 
 
-/* ══════════════════════════════════════════════════════════════════════════════
-   SECTION 03: MODULE CONTAINERS — FLOATING PILL ISLAND
-   Android 16 Dynamic Island aesthetic · Centered pill with
-   surface container background · Outline variant border ·
-   28dp rounded corners · Elevated appearance
-   ══════════════════════════════════════════════════════════════════════════════ */
-
-.modules-left {
-    background: transparent;
-    margin: 0;
-    padding: 0;
-}
 
 .modules-center {
     background: @surface_container;
-    border: 1px solid alpha(@outline_variant, 0.3);
-    border-radius: 20px;
+    border: 1px solid alpha(@outline_variant, 0.2);
+    border-radius: 22px;
     margin: 5px 0;
-    padding: 0 6px;
+    padding: 0 4px;
 }
 
-.modules-right {
-    background: transparent;
-    margin: 0;
-    padding: 0;
-}
-
-
-/* ══════════════════════════════════════════════════════════════════════════════
-   SECTION 04: TOOLTIP — MATERIAL YOU DIALOG SURFACE
-   Elevated surface · 16dp corners · Rich content area
-   Android 16 popup style · Subtle outline
-   ══════════════════════════════════════════════════════════════════════════════ */
 
 tooltip {
-    background: @surface_container_high;
-    border: 1px solid alpha(@outline_variant, 0.25);
-    border-radius: 16px;
+    background: @surface_container_highest;
+    border: 1px solid alpha(@outline_variant, 0.2);
+    border-radius: 18px;
     padding: 0;
 }
 
@@ -103,272 +57,310 @@ tooltip * {
 
 tooltip label {
     color: @on_surface;
-    font-family: 'Google Sans Display', sans-serif;
+    font-family: "Google Sans Display", sans-serif;
     font-size: 12px;
     font-weight: 500;
-    padding: 10px 16px;
-    min-width: 32px;
+    padding: 12px 18px;
+    min-width: 36px;
     letter-spacing: 0.15px;
 }
-
-
-/* ══════════════════════════════════════════════════════════════════════════════
-   SECTION 05: LAUNCHER — PRIMARY FILLED BUTTON
-   Android 16 FAB-style launcher · Primary container tint
-   Morphs to filled primary on hover · Spring-bounce padding
-   ══════════════════════════════════════════════════════════════════════════════ */
-
 #custom-launcher {
     background: @primary_container;
     color: @on_primary_container;
-    font-size: 16px;
-    font-weight: 600;
-    padding: 0 14px;
+    font-size: 17px;
+    font-weight: 700;
+    padding: 0 15px;
     margin: 4px 2px 4px 4px;
-    border-radius: 16px;
+    border-radius: 18px;
     transition:
         all 0.4s cubic-bezier(0.2, 0, 0, 1),
-        background 0.25s cubic-bezier(0.2, 0, 0, 1),
-        padding 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-        border-radius 0.35s cubic-bezier(0.2, 0, 0, 1);
+        background 0.3s cubic-bezier(0.2, 0, 0, 1),
+        padding 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+        border-radius 0.4s cubic-bezier(0.2, 0, 0, 1);
 }
 
 #custom-launcher:hover {
     background: @primary;
     color: @on_primary;
-    padding: 0 18px;
-    border-radius: 14px;
+    padding: 0 20px;
+    border-radius: 15px;
 }
 
 
-/* ══════════════════════════════════════════════════════════════════════════════
-   SECTION 06: SEPARATORS — OPTICAL RHYTHM GUIDES
-   Dot · Pipe · Muted color · Spacing rhythm
-   ══════════════════════════════════════════════════════════════════════════════ */
 
 #custom-separator-left {
     background: transparent;
-    color: alpha(@outline_variant, 0.25);
+    color: alpha(@outline_variant, 0.2);
     font-size: 11px;
     font-weight: 300;
-    padding: 0 3px;
-    margin: 8px 0;
+    padding: 0 2px;
+    margin: 10px 0;
 }
 
 #custom-separator-dot {
     background: transparent;
-    color: alpha(@outline_variant, 0.4);
-    font-size: 7px;
+    color: alpha(@outline_variant, 0.35);
+    font-size: 6px;
     font-weight: 900;
-    padding: 0 5px;
+    padding: 0 4px;
     margin: 0;
 }
 
-
-/* ══════════════════════════════════════════════════════════════════════════════
-   SECTION 07: WORKSPACES — ANDROID 16 DYNAMIC PILL MORPHING
-   
-   Material motion with spring physics:
-   · Active workspace expands into filled primary pill
-   · Empty workspaces collapse to minimal dots
-   · Hover triggers surface state layer (8% opacity)
-   · Urgent pulsates with error color
-   · Visible gets subtle primary tint
-   · All transitions use Android 16 emphasized easing
-   ══════════════════════════════════════════════════════════════════════════════ */
-
 #workspaces {
-    background: alpha(@surface_container_high, 0.45);
+    background: alpha(@surface_container_high, 0.5);
     margin: 4px 2px;
-    padding: 2px 3px;
-    border-radius: 14px;
+    padding: 2px 4px;
+    border-radius: 16px;
 }
 
 #workspaces button {
     background: transparent;
     color: @on_surface_variant;
-    font-family: 'Google Sans Display', sans-serif;
+    font-family: "Google Sans Display", sans-serif;
     font-size: 11px;
     font-weight: 600;
-    padding: 0 7px;
+    padding: 0 8px;
     margin: 0 1px;
-    border-radius: 10px;
-    min-width: 10px;
-    min-height: 24px;
+    border-radius: 12px;
+    min-width: 12px;
+    min-height: 26px;
     transition:
         all 0.4s cubic-bezier(0.2, 0, 0, 1),
         min-width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
         background 0.3s cubic-bezier(0.2, 0, 0, 1),
         color 0.25s cubic-bezier(0.2, 0, 0, 1),
-        padding 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
-        border-radius 0.35s cubic-bezier(0.2, 0, 0, 1);
+        padding 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+        border-radius 0.4s cubic-bezier(0.2, 0, 0, 1);
 }
 
 #workspaces button:hover {
     background: alpha(@on_surface, 0.08);
     color: @on_surface;
-    min-width: 24px;
-    padding: 0 9px;
+    min-width: 26px;
+    padding: 0 10px;
 }
-
 #workspaces button.active {
     background: @primary;
     color: @on_primary;
     font-weight: 700;
-    min-width: 34px;
-    padding: 0 13px;
-    border-radius: 12px;
+    min-width: 38px;
+    padding: 0 14px;
+    border-radius: 13px;
 }
 
 #workspaces button.active:hover {
     background: @primary_fixed_dim;
     color: @on_primary;
-    min-width: 38px;
-    padding: 0 15px;
+    min-width: 42px;
+    padding: 0 16px;
 }
 
+/* ── Empty workspace: collapsed dot ── */
 #workspaces button.empty {
-    color: alpha(@outline, 0.4);
-    min-width: 6px;
-    padding: 0 5px;
+    color: alpha(@outline, 0.35);
+    min-width: 4px;
+    padding: 0 4px;
 }
 
 #workspaces button.empty:hover {
     background: alpha(@on_surface, 0.05);
     color: @on_surface_variant;
-    min-width: 20px;
-    padding: 0 7px;
+    min-width: 22px;
+    padding: 0 8px;
 }
 
 #workspaces button.urgent {
-    background: @error;
-    color: @on_error;
+    background: @error_container;
+    color: @on_error_container;
     font-weight: 700;
-    min-width: 28px;
-    border-radius: 12px;
+    min-width: 30px;
+    padding: 0 12px;
+    border-radius: 13px;
     animation: ws-urgent 1.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 #workspaces button.urgent:hover {
+    background: @error;
+    color: @on_error;
     animation: none;
-    min-width: 32px;
+    min-width: 34px;
 }
 
+/* ── Visible workspace: primary whisper ── */
 #workspaces button.visible {
     color: @primary;
-    min-width: 16px;
-    background: alpha(@primary, 0.1);
-    border-radius: 10px;
+    min-width: 18px;
+    background: alpha(@primary, 0.12);
+    border-radius: 11px;
 }
 
 #workspaces button.visible:hover {
-    background: alpha(@primary, 0.16);
-    min-width: 24px;
+    background: alpha(@primary, 0.18);
+    min-width: 26px;
 }
 
+/* ── Focused workspace: filled primary ── */
 #workspaces button.focused {
     background: @primary;
     color: @on_primary;
     font-weight: 700;
-    border-radius: 12px;
+    min-width: 36px;
+    padding: 0 13px;
+    border-radius: 13px;
+}
+
+#workspaces button.focused:hover {
+    background: @primary_fixed_dim;
+    min-width: 40px;
 }
 
 
 
-/* ══════════════════════════════════════════════════════════════════════════════
-   SECTION 08: CLOCK — CENTERED TIMEPIECE
-   Google Clock aesthetic · Alt format toggle · Calendar tooltip
-   Clean weight 600 · Subtle letter spacing
-   ══════════════════════════════════════════════════════════════════════════════ */
+#window {
+    background: transparent;
+    color: alpha(@on_surface_variant, 0.7);
+    font-family: "Google Sans Display", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 0 10px;
+    margin: 4px 2px;
+    border-radius: 12px;
+    letter-spacing: 0.1px;
+    transition:
+        all 0.4s cubic-bezier(0.2, 0, 0, 1),
+        padding 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+        color 0.3s cubic-bezier(0.2, 0, 0, 1);
+}
+
+#window:hover {
+    background: alpha(@on_surface, 0.06);
+    color: @on_surface;
+    padding: 0 14px;
+}
+
+#window.empty {
+    background: transparent;
+    padding: 0 2px;
+    min-width: 0;
+}
+
+#window.floating {
+    font-style: italic;
+    color: @secondary;
+}
+
+#window.floating:hover {
+    color: @on_secondary_container;
+}
+
+
 
 #clock {
     background: transparent;
     color: @on_surface;
-    font-family: 'Google Sans Display', sans-serif;
+    font-family: "Google Sans Display", sans-serif;
     font-size: 13px;
     font-weight: 600;
-    padding: 0 10px;
+    padding: 0 12px;
     margin: 4px 2px;
-    border-radius: 12px;
-    letter-spacing: 0.4px;
+    border-radius: 14px;
+    letter-spacing: 0.5px;
     transition:
-        all 0.35s cubic-bezier(0.2, 0, 0, 1),
-        padding 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        all 0.4s cubic-bezier(0.2, 0, 0, 1),
+        padding 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 #clock:hover {
     background: alpha(@on_surface, 0.08);
-    padding: 0 14px;
+    padding: 0 16px;
 }
 
 
-/* ══════════════════════════════���═══════════════════════════════════════════════
-   SECTION 09: MEDIA PLAYER — NOW PLAYING CHIP
-   Secondary container tint · Artist — Title format
-   Play/Pause state dimming · Smooth text reveal
-   ══════════════════════════════════════════════════════════════════════════════ */
 
 #custom-media {
-    background: alpha(@secondary_container, 0.35);
+    background: alpha(@secondary_container, 0.3);
     color: @on_secondary_container;
-    font-family: 'Google Sans Display', sans-serif;
+    font-family: "Google Sans Display", sans-serif;
     font-size: 12px;
     font-weight: 500;
     padding: 0 14px;
     margin: 4px 3px;
-    border-radius: 12px;
-    min-width: 60px;
+    border-radius: 14px;
     min-width: 280px;
     letter-spacing: 0.1px;
     transition:
         all 0.4s cubic-bezier(0.2, 0, 0, 1),
-        padding 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-        background 0.3s cubic-bezier(0.2, 0, 0, 1),
+        padding 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+        background 0.35s cubic-bezier(0.2, 0, 0, 1),
         color 0.3s cubic-bezier(0.2, 0, 0, 1);
 }
 
 #custom-media:hover {
     background: @secondary_container;
     color: @on_secondary_container;
-    padding: 0 18px;
+    padding: 0 20px;
 }
 
 #custom-media.Playing {
     color: @on_secondary_container;
-    background: alpha(@secondary_container, 0.5);
+    background: alpha(@secondary_container, 0.55);
+}
+
+#custom-media.Playing:hover {
+    background: @secondary_container;
 }
 
 #custom-media.Paused {
-    color: alpha(@on_secondary_container, 0.5);
-    background: alpha(@secondary_container, 0.18);
+    color: alpha(@on_secondary_container, 0.45);
+    background: alpha(@secondary_container, 0.14);
 }
 
 #custom-media.Paused:hover {
     color: @on_secondary_container;
-    background: alpha(@secondary_container, 0.4);
+    background: alpha(@secondary_container, 0.35);
 }
 
 
-/* ══════════════════════════════════════════════════════════════════════════════
-   SECTION 10: SYSTEM TRAY — ICON COLLECTION
-   Compact icons · Hover state layer · Context menu styling
-   Android 16 popup menu aesthetic
-   ══════════════════════════════════════════════════════════════════════════════ */
+
+#custom-cava {
+    background: transparent;
+    color: alpha(@primary_fixed_dim, 0.55);
+    font-family: "monospace", "Fira Code", "JetBrains Mono";
+    font-size: 10px;
+    font-weight: 500;
+    padding: 0 6px;
+    margin: 4px 2px;
+    border-radius: 12px;
+    min-width: 50px;
+    letter-spacing: 1.5px;
+    transition:
+        all 0.4s cubic-bezier(0.2, 0, 0, 1),
+        padding 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+        color 0.35s cubic-bezier(0.2, 0, 0, 1);
+}
+
+#custom-cava:hover {
+    background: alpha(@primary, 0.08);
+    color: @primary;
+    padding: 0 10px;
+}
+
+
 
 #tray {
     background: transparent;
     color: @on_surface;
-    padding: 0 5px;
+    padding: 0 6px;
     margin: 4px 1px;
-    border-radius: 10px;
+    border-radius: 12px;
     transition:
-        all 0.35s cubic-bezier(0.2, 0, 0, 1),
-        padding 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        all 0.4s cubic-bezier(0.2, 0, 0, 1),
+        padding 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 #tray:hover {
     background: alpha(@on_surface, 0.06);
-    padding: 0 9px;
+    padding: 0 10px;
 }
 
 #tray > .passive {
@@ -380,27 +372,27 @@ tooltip label {
 }
 
 #tray menu {
-    background: @surface_container_high;
-    border: 1px solid alpha(@outline_variant, 0.25);
-    border-radius: 16px;
+    background: @surface_container_highest;
+    border: 1px solid alpha(@outline_variant, 0.2);
+    border-radius: 18px;
     padding: 6px 4px;
 }
 
 #tray menu separator {
-    background: alpha(@outline_variant, 0.3);
-    margin: 4px 14px;
+    background: alpha(@outline_variant, 0.25);
+    margin: 4px 16px;
     min-height: 1px;
 }
 
 #tray menu menuitem {
     background: transparent;
     color: @on_surface;
-    font-family: 'Google Sans Display', sans-serif;
+    font-family: "Google Sans Display", sans-serif;
     font-size: 12px;
     font-weight: 500;
-    padding: 9px 18px;
+    padding: 10px 20px;
     margin: 1px 6px;
-    border-radius: 10px;
+    border-radius: 12px;
     min-height: 20px;
     transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
 }
@@ -410,37 +402,64 @@ tooltip label {
 }
 
 #tray menu menuitem:disabled {
-    color: alpha(@outline, 0.4);
+    color: alpha(@outline, 0.35);
 }
 
 
-/* ══════════════════════════════════════════════════════════════════════════════
-   SECTION 11: NETWORK — CONNECTIVITY STATUS
-   Signal strength icons · Connected = Primary · Off = Muted
-   ══════════════════════════════════════════════════════════════════════════════ */
+
+#group-tray-expander {
+    background: transparent;
+    padding: 0;
+    margin: 0 1px;
+    border-radius: 12px;
+}
+
+#custom-tray-toggle {
+    background: transparent;
+    color: @on_surface_variant;
+    font-size: 12px;
+    padding: 0 8px;
+    margin: 4px 1px;
+    border-radius: 10px;
+    transition:
+        all 0.4s cubic-bezier(0.2, 0, 0, 1),
+        padding 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+#custom-tray-toggle:hover {
+    background: alpha(@on_surface, 0.08);
+    color: @on_surface;
+    padding: 0 12px;
+}
+
+.tray-child {
+    transition: all 0.5s cubic-bezier(0.2, 0, 0, 1);
+}
+
+
 
 #network {
     background: transparent;
     color: @on_surface;
     font-size: 15px;
     font-weight: 500;
-    padding: 0 8px;
+    padding: 0 9px;
     margin: 4px 1px;
-    border-radius: 10px;
+    border-radius: 12px;
     min-width: 20px;
     transition:
-        all 0.35s cubic-bezier(0.2, 0, 0, 1),
-        padding 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-        color 0.25s cubic-bezier(0.2, 0, 0, 1);
+        all 0.4s cubic-bezier(0.2, 0, 0, 1),
+        padding 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+        color 0.3s cubic-bezier(0.2, 0, 0, 1);
 }
 
 #network:hover {
     background: alpha(@on_surface, 0.08);
-    padding: 0 12px;
+    padding: 0 13px;
 }
 
 #network.disconnected {
-    color: alpha(@outline, 0.55);
+    color: alpha(@outline, 0.5);
 }
 
 #network.disconnected:hover {
@@ -449,7 +468,7 @@ tooltip label {
 }
 
 #network.disabled {
-    color: alpha(@outline, 0.35);
+    color: alpha(@outline, 0.3);
 }
 
 #network.linked {
@@ -465,37 +484,33 @@ tooltip label {
 }
 
 
-/* ══════════════════════════════════════════════════════════════════════════════
-   SECTION 12: BLUETOOTH — DEVICE CONNECTIVITY
-   Connected = Tertiary accent · Discovery breathe animation
-   ══════════════════════════════════════════════════════════════════════════════ */
 
 #bluetooth {
     background: transparent;
     color: @on_surface;
     font-size: 14px;
     font-weight: 500;
-    padding: 0 8px;
+    padding: 0 9px;
     margin: 4px 1px;
-    border-radius: 10px;
+    border-radius: 12px;
     min-width: 20px;
     transition:
-        all 0.35s cubic-bezier(0.2, 0, 0, 1),
-        padding 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-        color 0.25s cubic-bezier(0.2, 0, 0, 1);
+        all 0.4s cubic-bezier(0.2, 0, 0, 1),
+        padding 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+        color 0.3s cubic-bezier(0.2, 0, 0, 1);
 }
 
 #bluetooth:hover {
     background: alpha(@on_surface, 0.08);
-    padding: 0 12px;
+    padding: 0 13px;
 }
 
 #bluetooth.disabled {
-    color: alpha(@outline, 0.35);
+    color: alpha(@outline, 0.3);
 }
 
 #bluetooth.off {
-    color: alpha(@outline, 0.45);
+    color: alpha(@outline, 0.4);
 }
 
 #bluetooth.on {
@@ -506,6 +521,10 @@ tooltip label {
     color: @tertiary;
 }
 
+#bluetooth.connected:hover {
+    background: alpha(@tertiary, 0.08);
+}
+
 #bluetooth.discoverable {
     color: @tertiary;
     animation: bt-breathe 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
@@ -513,33 +532,28 @@ tooltip label {
 
 
 
-/* ══════════════════════════════════════════════════════════════════════════════
-   SECTION 13: PULSEAUDIO — VOLUME CONTROL
-   Device-aware icons · Mute dims to outline · BT = Tertiary
-   ══════════════════════════════════════════════════════════════════════════════ */
-
 #pulseaudio {
     background: transparent;
     color: @on_surface;
     font-size: 15px;
     font-weight: 500;
-    padding: 0 8px;
+    padding: 0 9px;
     margin: 4px 1px;
-    border-radius: 10px;
+    border-radius: 12px;
     min-width: 20px;
     transition:
-        all 0.35s cubic-bezier(0.2, 0, 0, 1),
-        padding 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-        color 0.25s cubic-bezier(0.2, 0, 0, 1);
+        all 0.4s cubic-bezier(0.2, 0, 0, 1),
+        padding 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+        color 0.3s cubic-bezier(0.2, 0, 0, 1);
 }
 
 #pulseaudio:hover {
     background: alpha(@on_surface, 0.08);
-    padding: 0 12px;
+    padding: 0 13px;
 }
 
 #pulseaudio.muted {
-    color: alpha(@outline, 0.5);
+    color: alpha(@outline, 0.45);
 }
 
 #pulseaudio.muted:hover {
@@ -551,35 +565,54 @@ tooltip label {
     color: @tertiary;
 }
 
+#pulseaudio.bluetooth:hover {
+    background: alpha(@tertiary, 0.08);
+}
+
 #pulseaudio.source-muted {
     color: @on_surface_variant;
 }
 
 
-/* ══════════════════════════════════════════════════════════════════════════════
-   SECTION 14: BATTERY — POWER STATUS
-   Android battery indicator · Charging breathe · Critical flash
-   State hierarchy: Full → Good → Warning → Critical
-   ══════════════════════════════════════════════════════════════════════════════ */
+
+#backlight {
+    background: transparent;
+    color: @on_surface;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 0 9px;
+    margin: 4px 1px;
+    border-radius: 12px;
+    transition:
+        all 0.4s cubic-bezier(0.2, 0, 0, 1),
+        padding 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+#backlight:hover {
+    background: alpha(@on_surface, 0.08);
+    padding: 0 13px;
+}
+
+
 
 #battery {
     background: transparent;
     color: @on_surface;
     font-size: 15px;
     font-weight: 500;
-    padding: 0 8px;
+    padding: 0 9px;
     margin: 4px 1px;
-    border-radius: 10px;
+    border-radius: 12px;
     min-width: 20px;
     transition:
-        all 0.35s cubic-bezier(0.2, 0, 0, 1),
-        padding 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-        color 0.3s cubic-bezier(0.2, 0, 0, 1);
+        all 0.4s cubic-bezier(0.2, 0, 0, 1),
+        padding 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+        color 0.35s cubic-bezier(0.2, 0, 0, 1);
 }
 
 #battery:hover {
     background: alpha(@on_surface, 0.08);
-    padding: 0 12px;
+    padding: 0 13px;
 }
 
 #battery.charging {
@@ -589,10 +622,15 @@ tooltip label {
 
 #battery.charging:hover {
     animation: none;
+    background: alpha(@primary, 0.08);
 }
 
 #battery.plugged {
     color: @primary;
+}
+
+#battery.plugged:hover {
+    background: alpha(@primary, 0.08);
 }
 
 #battery.full {
@@ -621,119 +659,33 @@ tooltip label {
     background: alpha(@error, 0.08);
 }
 
-/* ══════════════════════════════════════════════════════════════════════════════
-   SECTION 15: POWER BUTTON — SYSTEM CONTROL
-   Tonal surface chip → Error filled on hover · Deliberate action
-   Rounded pill · Spring padding expansion
-   ══════════════════════════════════════════════════════════════════════════════ */
 
-#custom-power {
-    background: alpha(@on_surface, 0.06);
-    color: @on_surface_variant;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 0 12px;
-    margin: 4px 4px 4px 2px;
-    border-radius: 16px;
-    transition:
-        all 0.35s cubic-bezier(0.2, 0, 0, 1),
-        background 0.25s cubic-bezier(0.2, 0, 0, 1),
-        padding 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-        border-radius 0.35s cubic-bezier(0.2, 0, 0, 1);
-}
-
-#custom-power:hover {
-    background: @error;
-    color: @on_error;
-    padding: 0 16px;
-    border-radius: 14px;
-}
-
-
-/* ══════════════════════════════════════════════════════════════════════════════
-   SECTION 16: TRAY EXPANDER GROUP
-   Expandable chip · Reveal animation
-   ══════════════════════════════════════════════════════════════════════════════ */
-
-#group-tray-expander {
-    background: transparent;
-    padding: 0;
-    margin: 0 1px;
-    border-radius: 10px;
-}
-
-#custom-tray-toggle {
-    background: transparent;
-    color: @on_surface_variant;
-    font-size: 12px;
-    padding: 0 7px;
-    margin: 4px 1px;
-    border-radius: 8px;
-    transition:
-        all 0.35s cubic-bezier(0.2, 0, 0, 1),
-        padding 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-#custom-tray-toggle:hover {
-    background: alpha(@on_surface, 0.08);
-    color: @on_surface;
-    padding: 0 11px;
-}
-
-.tray-child {
-    transition: all 0.45s cubic-bezier(0.2, 0, 0, 1);
-}
-
-
-/* ══════════════════════════════════════════════════════════════════════════════
-   SECTION 17: BACKLIGHT — BRIGHTNESS CONTROL
-   ══════════════════════════════════════════════════════════════════════════════ */
-
-#backlight {
-    background: transparent;
-    color: @on_surface;
-    font-size: 15px;
-    font-weight: 500;
-    padding: 0 8px;
-    margin: 4px 1px;
-    border-radius: 10px;
-    transition:
-        all 0.35s cubic-bezier(0.2, 0, 0, 1),
-        padding 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-#backlight:hover {
-    background: alpha(@on_surface, 0.08);
-    padding: 0 12px;
-}
-
-
-/* ══════════════════════════════════════════════════════════════════════════════
-   SECTION 18: TEMPERATURE — THERMAL STATUS
-   Warning = Tertiary · Critical = Error with pulse
-   ══════════════════════════════════════════════════════════════════════════════ */
 
 #temperature {
     background: transparent;
     color: @on_surface;
     font-size: 15px;
     font-weight: 500;
-    padding: 0 8px;
+    padding: 0 9px;
     margin: 4px 1px;
-    border-radius: 10px;
+    border-radius: 12px;
     transition:
-        all 0.35s cubic-bezier(0.2, 0, 0, 1),
-        padding 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-        color 0.3s cubic-bezier(0.2, 0, 0, 1);
+        all 0.4s cubic-bezier(0.2, 0, 0, 1),
+        padding 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+        color 0.35s cubic-bezier(0.2, 0, 0, 1);
 }
 
 #temperature:hover {
     background: alpha(@on_surface, 0.08);
-    padding: 0 12px;
+    padding: 0 13px;
 }
 
 #temperature.warning {
     color: @tertiary;
+}
+
+#temperature.warning:hover {
+    background: alpha(@tertiary, 0.08);
 }
 
 #temperature.critical {
@@ -741,298 +693,233 @@ tooltip label {
     animation: temp-alert 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
+#temperature.critical:hover {
+    animation: none;
+    background: alpha(@error, 0.08);
+}
 
 
-/* ══════════════════════════════════════════════════════════════════════════════
-   SECTION 19: CPU MONITOR
-   ══════════════════════════════════════════════════════════════════════════════ */
 
 #cpu {
     background: transparent;
     color: @on_surface_variant;
-    font-family: 'Google Sans Display', sans-serif;
+    font-family: "Google Sans Display", sans-serif;
     font-size: 12px;
     font-weight: 500;
-    padding: 0 8px;
+    padding: 0 9px;
     margin: 4px 1px;
-    border-radius: 10px;
-    letter-spacing: 0.2px;
+    border-radius: 12px;
+    letter-spacing: 0.25px;
     transition:
-        all 0.35s cubic-bezier(0.2, 0, 0, 1),
-        padding 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        all 0.4s cubic-bezier(0.2, 0, 0, 1),
+        padding 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+        color 0.3s cubic-bezier(0.2, 0, 0, 1);
 }
 
 #cpu:hover {
     background: alpha(@on_surface, 0.08);
     color: @on_surface;
-    padding: 0 12px;
+    padding: 0 13px;
 }
 
 
-/* ══════════════════════════════════════════════════════════════════════════════
-   SECTION 20: MEMORY MONITOR
-   ══════════════════════════════════════════════════════════════════════════════ */
 
 #memory {
     background: transparent;
     color: @on_surface_variant;
-    font-family: 'Google Sans Display', sans-serif;
+    font-family: "Google Sans Display", sans-serif;
     font-size: 12px;
     font-weight: 500;
-    padding: 0 8px;
+    padding: 0 9px;
     margin: 4px 1px;
-    border-radius: 10px;
-    letter-spacing: 0.2px;
+    border-radius: 12px;
+    letter-spacing: 0.25px;
     transition:
-        all 0.35s cubic-bezier(0.2, 0, 0, 1),
-        padding 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        all 0.4s cubic-bezier(0.2, 0, 0, 1),
+        padding 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+        color 0.3s cubic-bezier(0.2, 0, 0, 1);
 }
 
 #memory:hover {
     background: alpha(@on_surface, 0.08);
     color: @on_surface;
-    padding: 0 12px;
+    padding: 0 13px;
 }
 
 
-/* ══════════════════════════════════════════════════════════════════════════════
-   SECTION 21: IDLE INHIBITOR — TOGGLE CHIP
-   Activated = Primary tint · Deactivated = Muted outline
-   ══════════════════════════════════════════════════════════════════════════════ */
 
 #idle_inhibitor {
     background: transparent;
     color: @on_surface_variant;
     font-size: 14px;
     font-weight: 500;
-    padding: 0 8px;
+    padding: 0 9px;
     margin: 4px 1px;
-    border-radius: 10px;
+    border-radius: 12px;
     transition:
-        all 0.35s cubic-bezier(0.2, 0, 0, 1),
-        padding 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        all 0.4s cubic-bezier(0.2, 0, 0, 1),
+        padding 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+        background 0.3s cubic-bezier(0.2, 0, 0, 1);
 }
 
 #idle_inhibitor:hover {
     background: alpha(@on_surface, 0.08);
     color: @on_surface;
-    padding: 0 12px;
+    padding: 0 13px;
 }
 
 #idle_inhibitor.activated {
-    color: @primary;
-    background: alpha(@primary, 0.12);
-    border-radius: 12px;
+    color: @on_primary_container;
+    background: @primary_container;
+    border-radius: 14px;
+    padding: 0 12px;
 }
 
 #idle_inhibitor.activated:hover {
-    background: alpha(@primary, 0.18);
+    background: @primary;
+    color: @on_primary;
 }
 
 #idle_inhibitor.deactivated {
-    color: alpha(@outline, 0.5);
+    color: alpha(@outline, 0.45);
 }
 
 
-/* ══════════════════════════════════════════════════════════════════════════════
-   SECTION 22: LANGUAGE INDICATOR — COMPACT CHIP
-   Bold uppercase · Google Input style
-   ══════════════════════════════════════════════════════════════════════════════ */
 
 #language {
     background: transparent;
     color: @on_surface_variant;
-    font-family: 'Google Sans Display', sans-serif;
+    font-family: "Google Sans Display", sans-serif;
     font-size: 11px;
     font-weight: 700;
-    padding: 0 8px;
+    padding: 0 9px;
     margin: 4px 1px;
-    border-radius: 10px;
-    letter-spacing: 0.5px;
+    border-radius: 12px;
+    letter-spacing: 0.6px;
     transition:
-        all 0.35s cubic-bezier(0.2, 0, 0, 1),
-        padding 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        all 0.4s cubic-bezier(0.2, 0, 0, 1),
+        padding 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 #language:hover {
     background: alpha(@on_surface, 0.08);
     color: @on_surface;
-    padding: 0 12px;
+    padding: 0 13px;
 }
 
 
-/* ══════════════════════════════════════════════════════════════════════════════
-   SECTION 23: WINDOW TITLE — ACTIVE APP DISPLAY
-   Dim variant text · Hover reveals full · Floating italic
-   ══════════════════════════════════════════════════════════════════════════════ */
-
-#window {
-    background: transparent;
-    color: alpha(@on_surface_variant, 0.75);
-    font-family: 'Google Sans Display', sans-serif;
-    font-size: 12px;
-    font-weight: 500;
-    padding: 0 10px;
-    margin: 4px 3px;
-    border-radius: 10px;
-    letter-spacing: 0.1px;
-    transition:
-        all 0.35s cubic-bezier(0.2, 0, 0, 1),
-        padding 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-#window:hover {
-    background: alpha(@on_surface, 0.06);
-    color: @on_surface;
-    padding: 0 14px;
-}
-
-#window.empty {
-    background: transparent;
-    padding: 0 3px;
-    min-width: 0;
-}
-
-#window.floating {
-    font-style: italic;
-    color: @secondary;
-}
-
-
-/* ══════════════════════════════════════════════════════════════════════════════
-   SECTION 24: CAVA VISUALIZER — AUDIO BARS
-   Monospace font · Primary accent dimmed · Reactive glow on hover
-   ══════════════════════════════════════════════════════════════════════════════ */
-
-#custom-cava {
-    background: transparent;
-    color: alpha(@primary_fixed_dim, 0.6);
-    font-family: 'monospace', 'Fira Code', 'JetBrains Mono';
-    font-size: 10px;
-    font-weight: 500;
-    padding: 0 6px;
-    margin: 4px 2px;
-    border-radius: 10px;
-    min-width: 50px;
-    letter-spacing: 1.5px;
-    transition:
-        all 0.35s cubic-bezier(0.2, 0, 0, 1),
-        padding 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-        color 0.3s cubic-bezier(0.2, 0, 0, 1);
-}
-
-#custom-cava:hover {
-    background: alpha(@primary, 0.08);
-    color: @primary;
-    padding: 0 10px;
-}
-
-
-/* ══════════════════════════════════════════════════════════════════════════════
-   SECTION 25: CUSTOM UPDATE — NOTIFICATION BADGE
-   Pending = Primary tint + breathe animation
-   ══════════════════════════════════════════════════════════════════════════════ */
 
 #custom-update {
     background: transparent;
     color: @on_surface;
     font-size: 14px;
     font-weight: 500;
-    padding: 0 8px;
+    padding: 0 9px;
     margin: 4px 1px;
-    border-radius: 10px;
+    border-radius: 12px;
     transition:
-        all 0.35s cubic-bezier(0.2, 0, 0, 1),
-        padding 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        all 0.4s cubic-bezier(0.2, 0, 0, 1),
+        padding 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 #custom-update:hover {
     background: alpha(@on_surface, 0.08);
-    padding: 0 12px;
+    padding: 0 13px;
 }
 
 #custom-update.pending {
-    color: @primary;
-    background: alpha(@primary, 0.08);
+    color: @on_primary_container;
+    background: alpha(@primary_container, 0.7);
+    border-radius: 14px;
+    padding: 0 12px;
     animation: update-breathe 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-
-
-/* ══════════════════════════════════════════════════════════════════════════════
-   SECTION 26: TIMER / POMODORO — FOCUS CHIPS
-   Work = Primary container · Break = Secondary container
-   Timer = Primary tint with tick animation
-   ══════════════════════════════════════════════════════════════════════════════ */
+#custom-update.pending:hover {
+    animation: none;
+    background: @primary_container;
+}
 
 #custom-way {
     background: transparent;
     color: @on_surface;
-    font-family: 'Google Sans Display', sans-serif;
+    font-family: "Google Sans Display", sans-serif;
     font-size: 11px;
     font-weight: 600;
-    padding: 0 10px;
+    padding: 0 11px;
     margin: 4px 2px;
-    border-radius: 12px;
+    border-radius: 14px;
     letter-spacing: 0.3px;
     transition:
-        all 0.35s cubic-bezier(0.2, 0, 0, 1),
-        padding 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        all 0.4s cubic-bezier(0.2, 0, 0, 1),
+        padding 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 #custom-way:hover {
     background: alpha(@on_surface, 0.08);
-    padding: 0 14px;
+    padding: 0 15px;
 }
 
 #custom-way.timer {
-    background: alpha(@primary, 0.12);
+    background: alpha(@primary, 0.14);
     color: @primary;
     animation: timer-tick 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+#custom-way.timer:hover {
+    animation: none;
+    background: alpha(@primary, 0.2);
 }
 
 #custom-way.pomodoro-work {
     background: @primary_container;
     color: @on_primary_container;
     font-weight: 700;
+    padding: 0 14px;
+}
+
+#custom-way.pomodoro-work:hover {
+    background: @primary;
+    color: @on_primary;
 }
 
 #custom-way.pomodoro-break {
     background: @secondary_container;
     color: @on_secondary_container;
+    padding: 0 14px;
+}
+
+#custom-way.pomodoro-break:hover {
+    background: @secondary;
+    color: @on_secondary;
 }
 
 
-
-/* ══════════════════════════════════════════════════════════════════════════════
-   SECTION 27: SCREEN RECORDING INDICATOR — LIVE BADGE
-   Recording = Error container + blink · Hover stops animation
-   ══════════════════════════════════════════════════════════════════════════════ */
 
 #custom-screenrecording-indicator {
     background: transparent;
     color: @on_surface;
     font-size: 12px;
     font-weight: 600;
-    padding: 0 8px;
+    padding: 0 9px;
     margin: 4px 1px;
-    border-radius: 10px;
+    border-radius: 12px;
     transition:
-        all 0.35s cubic-bezier(0.2, 0, 0, 1),
-        padding 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        all 0.4s cubic-bezier(0.2, 0, 0, 1),
+        padding 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 #custom-screenrecording-indicator:hover {
     background: alpha(@on_surface, 0.08);
-    padding: 0 12px;
+    padding: 0 13px;
 }
 
 #custom-screenrecording-indicator.recording {
     background: @error_container;
     color: @on_error_container;
     font-weight: 700;
-    padding: 0 12px;
-    border-radius: 12px;
+    padding: 0 14px;
+    border-radius: 14px;
     animation: rec-blink 1.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
@@ -1040,15 +927,34 @@ tooltip label {
     animation: none;
     background: @error;
     color: @on_error;
+    padding: 0 18px;
 }
 
 
 
-/* ══════════════════════════════════════════════════════════════════════════════
-   SECTION 28: FULLSCREEN ADAPTATIONS
-   Pill dissolves into semi-transparent strip · No borders
-   Unobtrusive presence over fullscreen content
-   ══════════════════════════════════════════════════════════════════════════════ */
+#custom-power {
+    background: alpha(@on_surface, 0.06);
+    color: @on_surface_variant;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 0 13px;
+    margin: 4px 4px 4px 2px;
+    border-radius: 18px;
+    transition:
+        all 0.4s cubic-bezier(0.2, 0, 0, 1),
+        background 0.3s cubic-bezier(0.2, 0, 0, 1),
+        padding 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+        border-radius 0.4s cubic-bezier(0.2, 0, 0, 1);
+}
+
+#custom-power:hover {
+    background: @error;
+    color: @on_error;
+    padding: 0 18px;
+    border-radius: 15px;
+}
+
+
 
 window#waybar.fullscreen {
     background: transparent;
@@ -1059,20 +965,15 @@ window#waybar.fullscreen .modules-left,
 window#waybar.fullscreen .modules-right {
     background: transparent;
     border: none;
+    border-radius: 0;
     margin: 0;
 }
 
 window#waybar.fullscreen .modules-center {
-    background: alpha(@surface_container, 0.82);
+    background: alpha(@surface_container, 0.8);
     border-radius: 0;
     border: none;
-    border-bottom: 1px solid alpha(@outline_variant, 0.15);
+    border-bottom: 1px solid alpha(@outline_variant, 0.12);
     margin: 0;
-    padding: 0 12px;
+    padding: 0 14px;
 }
-
-
-/* ══════════════════════════════════════════════════════════════════════════════
-   END — Android 16 · Material You · Google Design System
-   Floating Pill · Dynamic Color · Expressive Motion
-   ══════════════════════════════════════════════════════════════════════════════ */
