@@ -7,10 +7,12 @@ We Uses An GNU Policy , That Mean You Should  Make Your App Public and Open-Sour
 We Switched From OmGlass To CarmonyOS 10.0 So , this is the still supported versions and who not
 | Version | Status             |
 | ------- | ------------------ |
-| C10.0   | Active & supported |
-| O7.0    | Supported          |
+| C22.5   | Active & Supported |
+| C20.0   | Active & Supported |
+| C10.0   | Unsuported         |
+| O7.0    | UnSupported        |
 | O5.2    | Unsuported         |
-| O4.0    | Unsuported & Issues|
+| O4.0    | Unsuported         |
 --------------------------------
 
 ## Comunity Version:
